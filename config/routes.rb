@@ -1,4 +1,13 @@
 RLearning::Application.routes.draw do
+  resources :correct_answers
+
+
+  resources :choices
+
+
+  resources :questions
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

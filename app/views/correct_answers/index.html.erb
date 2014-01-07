@@ -1,0 +1,25 @@
+<h1>Listing correct_answers</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Choice number</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @correct_answers.each do |correct_answer| %>
+  <tr>
+    <td><%= correct_answer.question_id %></td>
+    <td><%= correct_answer.choice_number %></td>
+    <td><%= link_to 'Show', correct_answer %></td>
+    <td><%= link_to 'Edit', edit_correct_answer_path(correct_answer) %></td>
+    <td><%= link_to 'Destroy', correct_answer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Correct answer', new_correct_answer_path %>

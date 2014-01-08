@@ -5,8 +5,8 @@ require 'set'
 DEBUG = false
 
 if DEBUG
-  tables = [Question, Choice, CorrectAnswer]
-  tables.each do |t|
+  models = [Question, Choice, CorrectAnswer]
+  models.each do |t|
     puts t
     cs = t.method(:column_names)[]
     cs.each do |c|
@@ -19,6 +19,7 @@ if DEBUG
 end
 
 q = Question.first
+
 print q.description
 q.choices.each do |c|
   puts c.choice_number
@@ -26,25 +27,25 @@ q.choices.each do |c|
   puts
 end
 
-as = []
+answers = []
+cardinality = q.choices.size
 loop do
-  cardinality = q.choices.size
   print "1 - #{cardinality}:"
   a = gets.to_i
   break unless (1 .. cardinality) === a
-  as << a
+  answers << a
+  answers.to_a
 end
 
 correct_nums = q.correct_answers.map(&:choice_number)
-p as, correct_nums if DEBUG
 
-as = Set.new(as)
-puts "あなたは#{as.to_a}を選んだ"
-if as == Set.new(correct_nums)
+p 'correct_nums', correct_nums
+answers = Set.new(answers)
+puts "あなたは#{answers.to_a}を選んだ"
+if answers == Set.new(correct_nums)
   print "\n正解\n\n"
 else
   puts '間違い、正しくは:'
-  p correct_nums
-  puts
+  print "#{correct_nums}\n\n"
 end
 print q.explanation

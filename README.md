@@ -1,50 +1,19 @@
-== Welcome to Rails
+# Welcome to RLearing
 
-Rails is a web-application framework that includes everything needed to create
-database-backed web applications according to the Model-View-Control pattern.
+# Getting Started
 
-This pattern splits the view (also called the presentation) into "dumb"
-templates that are primarily responsible for inserting pre-built data in between
-HTML tags. The model contains the "smart" domain objects (such as Account,
-Product, Person, Post) that holds all the business logic and knows how to
-persist themselves to a database. The controller handles the incoming requests
-(such as Save New Account, Update Product, Show Post) by manipulating the model
-and directing data to the view.
-
-In Rails, the model is handled by what's called an object-relational mapping
-layer entitled Active Record. This layer allows you to present the data from
-database rows as objects and embellish these data objects with business logic
-methods. You can read more about Active Record in
-link:files/vendor/rails/activerecord/README.html.
-
-The controller and view are handled by the Action Pack, which handles both
-layers by its two parts: Action View and Action Controller. These two layers
-are bundled in a single package due to their heavy interdependence. This is
-unlike the relationship between the Active Record and Action Pack that is much
-more separate. Each of these packages can be used independently outside of
-Rails. You can read more about Action Pack in
-link:files/vendor/rails/actionpack/README.html.
-
-
-== Getting Started
-
-1. At the command prompt, create a new Rails application:
-       <tt>rails new myapp</tt> (where <tt>myapp</tt> is the application name)
-
-2. Change directory to <tt>myapp</tt> and start the web server:
-       <tt>cd myapp; rails server</tt> (run with --help for options)
-
-3. Go to http://localhost:3000/ and you'll see:
-       "Welcome aboard: You're riding Ruby on Rails!"
-
+1. Change directory to <tt>r_learning</tt> and start the web server:
+       <tt>cd r_learning; rails server</tt> (run with --help for options)
+2. Update DB:
+	<tt>rake db:migrate;rake db:seed</tt>
+3. Go to http://localhost:3000/
 4. Follow the guidelines to start developing your application. You can find
 the following resources handy:
 
 * The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
 * Ruby on Rails Tutorial Book: http://www.railstutorial.org/
 
-
-== Debugging Rails
+# Debugging Rails
 
 Sometimes your application goes wrong. Fortunately there are a lot of tools that
 will help you debug it and get it back on the rails.
@@ -81,7 +50,7 @@ These two books will bring you up to speed on the Ruby language and also on
 programming in general.
 
 
-== Debugger
+# Debugger
 
 Debugger support is available through the debugger command when you start your
 Mongrel or WEBrick server with --debugger. This means that you can break out of
@@ -117,7 +86,7 @@ with a IRB prompt in the server window. Here you can do things like:
 Finally, when you're ready to resume execution, you can enter "cont".
 
 
-== Console
+# Console
 
 The console is a Ruby shell, which allows you to interact with your
 application's domain model. Here you'll have all parts of the application
@@ -142,7 +111,7 @@ More information about irb can be found at:
 link:http://www.rubycentral.org/pickaxe/irb.html
 
 
-== dbconsole
+# dbconsole
 
 You can go to the command line of your database directly through <tt>rails
 dbconsole</tt>. You would be connected to the database with the credentials
@@ -151,7 +120,7 @@ to the development database. Passing an argument will connect you to a different
 database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
 PostgreSQL and SQLite 3.
 
-== Description of Contents
+# Description of Contents
 
 The default directory structure of a generated Ruby on Rails application:
 

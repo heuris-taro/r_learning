@@ -4,4 +4,5 @@ class Question < ActiveRecord::Base
   has_many :choices, dependent: :destroy
 
   validates :description, :explanation, presence: true
+#  validates_associated :correct_answers, :choices
 end

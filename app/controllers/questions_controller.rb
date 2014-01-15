@@ -80,4 +80,11 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  # GET /questions/1/explain
+  def explain
+    @question = Question.find(params[:id])
+    # p params # show.html から選択番号を受け取る
+    # @mistake
+  end
 end

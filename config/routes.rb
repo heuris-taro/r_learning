@@ -2,12 +2,10 @@ RLearning::Application.routes.draw do
   get "exercise/start"
 
   resources :correct_answers
-
-
   resources :choices
-
-
-  resources :questions
+  resources :questions do
+    get :explain, on: :member
+  end
 
 
   # The priority is based upon order of creation:

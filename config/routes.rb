@@ -1,4 +1,6 @@
 RLearning::Application.routes.draw do
+  get "exercise/start"
+
   resources :correct_answers
 
 

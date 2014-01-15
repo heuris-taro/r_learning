@@ -1,15 +1,22 @@
 <p id="notice"><%= notice %></p>
-
-<p>
   <b><問題文></b>
   <%= @question.description %>
-</p>
-
+<% @question.choices.each_with_index do |choice, idx| %>
 <p>
-  <b><解説></b>
-  <%= @question.explanation %>
+<button class="choice_button" type="checkbox" name="<%= idx.succ %>" value="<%= idx.succ %>">
+<div class="choice_num">
+<%= idx.succ %>
+</div>
+<div class="choice_txt">
+<pre><%= choice.description %></pre>
+</div>
+</button>
 </p>
-
-
+<% end %>
+<p>
+<button class="choice_button" type="submit" value="解答する">
+<pre>解答する</pre>
+</button>
+</p>
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

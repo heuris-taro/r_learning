@@ -1,3 +1,29 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.choice_button{
+	width: 500px;
+	padding: 0;
+	border-style: none;
+	background-color: #dddddd
+}
+.choice_button:active {
+	background-color: #99ffff
+}
+.choice_button pre{
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 15px;
+	margin: 0;
+	padding: 0;
+}
+.choice_num{
+	width: 27px;
+	float: left;
+	margin: 0;
+}
+.choice_txt{
+	width: 470px;
+	float: right;
+	margin: 0;
+}

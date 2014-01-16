@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
+    p 'DEBUG', params
 
     respond_to do |format|
       format.html # show.html.erb
@@ -80,5 +81,13 @@ class QuestionsController < ApplicationController
       format.html { redirect_to questions_url }
       format.json { head :no_content }
     end
+  end
+  
+  # GET /questions/1/explain
+  def explain
+    @question = Question.find(params[:id])
+    # show.html から選択番号を受け取る
+    p 'DEBUG', params
+    # @mistake
   end
 end

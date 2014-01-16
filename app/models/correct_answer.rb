@@ -2,8 +2,15 @@
 class CorrectAnswer < ActiveRecord::Base
   attr_accessible :choice_number, :question_id
   belongs_to :question
-  
+
   validates :question_id, presence: true
   validates :choice_number, presence: true
-#  validates :choice_number # (1 .. ca.question.choices.size)に含まれるか
+  validates :choice_number, numericality: {only_integer: true, greater_than: 0}
+
+  validate :must_be_member
+  def must_be_member
+    unless (1 .. self.question.choices.size) === self.choice_number
+      errors.add(:base,"Must be member of choices")
+    end
+  end
 end

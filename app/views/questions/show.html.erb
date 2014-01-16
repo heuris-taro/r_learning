@@ -1,15 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Description:</b>
-  <%= @question.description %>
-</p>
-
-<p>
-  <b>Explanation:</b>
-  <%= @question.explanation %>
-</p>
+<%= @question.description %>
 
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
-<%= link_to 'Back', questions_path %>
+<%= form_tag(explain_question_path(@question), method: :get) do %>
+	<%= label_tag :choice %>
+	<%= radio_button_tag :choice, '1' %>
+
+
+<%= submit_tag %>
+
+<% end %>
+

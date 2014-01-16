@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  # GET /questions
+  skip_before_filter :authorize, only: [:create, :update, :destroy]
+ # GET /questions
   # GET /questions.json
   def index
     @questions = Question.all

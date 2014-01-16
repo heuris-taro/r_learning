@@ -3,9 +3,9 @@
 one:
   question_id: 1
   choice_number: 1
-  description: MyText
+  description: Choice1
 
 two:
   question_id: 1
-  choice_number: 1
-  description: MyText
+  choice_number: 2
+  description: Choice2

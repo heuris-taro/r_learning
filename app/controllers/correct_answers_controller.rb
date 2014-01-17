@@ -1,4 +1,5 @@
 class CorrectAnswersController < ApplicationController
+  skip_before_filter :authorize, only: [:create, :update, :destroy]
   # GET /correct_answers
   # GET /correct_answers.json
   def index

@@ -42,3 +42,7 @@ group :development do
   gem 'pry-doc'
   gem 'pry-rails'
 end
+
+gem 'spork', '~> 1.0rc'
+gem 'spork-testunit'
+

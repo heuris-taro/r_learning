@@ -5,5 +5,5 @@ class Choice < ActiveRecord::Base
   validates :question_id, presence: true
   validates :choice_number, :description, presence: true
   validates :choice_number, numericality: {only_integer: true, greater_than: 0}
-  validates_uniqueness_of :choice_number, scope: :question_id
+  validates :choice_number, uniqueness: {scope: :question_id}
 end

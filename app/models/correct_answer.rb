@@ -9,7 +9,7 @@ class CorrectAnswer < ActiveRecord::Base
   validates :choice_number, uniqueness: {scope: :question_id}
   validates_each :choice_number do |record, attr, value|
     unless (1 .. record.question.choices.size) === value
-      record.errors.add(attr, "must be member of choices")
+      record.errors.add(attr, "must be member of the choices")
     end
   end
 end

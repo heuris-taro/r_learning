@@ -12,11 +12,6 @@ Spork.prefork do
   require File.expand_path('../../config/environment', __FILE__)
   require 'rails/test_help'
 
-end
-
-Spork.each_run do
-  # This code will be run each time you run your specs.
-
   class ActiveSupport::TestCase
     # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
     #
@@ -26,6 +21,11 @@ Spork.each_run do
 
     # Add more helper methods to be used by all tests here...
   end
+end
+
+Spork.each_run do
+  # This code will be run each time you run your specs.
+
 end
 
 # --- Instructions ---

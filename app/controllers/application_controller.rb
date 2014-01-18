@@ -1,6 +1,5 @@
 # coding: UTF-8
 class ApplicationController < ActionController::Base
-=begin
   before_filter :authorize
 
   protect_from_forgery
@@ -10,5 +9,4 @@ class ApplicationController < ActionController::Base
     end
   end
   private :authorize
-=end
 end

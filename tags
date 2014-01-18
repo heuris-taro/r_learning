@@ -5,6 +5,7 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ActiveSupport	test/test_helper.rb	/^  class ActiveSupport::TestCase$/;"	c
+AddExplanationToChoices	db/migrate/20140118103124_add_explanation_to_choices.rb	/^class AddExplanationToChoices < ActiveRecord::Migration$/;"	c
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:RLearning
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
 ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
@@ -40,6 +41,7 @@ bar	db/seeds.rb	/^def bar$/;"	f
 change	db/migrate/20140107093239_create_questions.rb	/^  def change$/;"	f	class:CreateQuestions
 change	db/migrate/20140107094336_create_choices.rb	/^  def change$/;"	f	class:CreateChoices
 change	db/migrate/20140107094458_create_correct_answers.rb	/^  def change$/;"	f	class:CreateCorrectAnswers
+change	db/migrate/20140118103124_add_explanation_to_choices.rb	/^  def change$/;"	f	class:AddExplanationToChoices
 create	app/controllers/choices_controller.rb	/^  def create$/;"	f	class:ChoicesController
 create	app/controllers/correct_answers_controller.rb	/^  def create$/;"	f	class:CorrectAnswersController
 create	app/controllers/questions_controller.rb	/^  def create$/;"	f	class:QuestionsController
@@ -54,6 +56,7 @@ foo	db/seeds.rb	/^def foo(x)$/;"	f
 index	app/controllers/choices_controller.rb	/^  def index$/;"	f	class:ChoicesController
 index	app/controllers/correct_answers_controller.rb	/^  def index$/;"	f	class:CorrectAnswersController
 index	app/controllers/questions_controller.rb	/^  def index$/;"	f	class:QuestionsController
+keywait	certified_ruby_cv.rb	/^def keywait$/;"	f
 new	app/controllers/choices_controller.rb	/^  def new$/;"	f	class:ChoicesController
 new	app/controllers/correct_answers_controller.rb	/^  def new$/;"	f	class:CorrectAnswersController
 new	app/controllers/questions_controller.rb	/^  def new$/;"	f	class:QuestionsController

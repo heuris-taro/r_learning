@@ -31,4 +31,10 @@ class ChoiceTest < ActiveSupport::TestCase
     assert_equal "has already been taken",
       choice.errors[:choice_number].join('; ')
   end
+
+  test "explanation can be empty" do
+    choice = choices(:one)
+    choice.explanation = nil
+    assert choice.valid?
+  end
 end

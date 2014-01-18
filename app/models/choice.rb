@@ -1,5 +1,5 @@
 class Choice < ActiveRecord::Base
-  attr_accessible :choice_number, :description, :question_id
+  attr_accessible :choice_number, :description, :question_id, :explanation
   belongs_to :question
 
   validates :question_id, presence: true

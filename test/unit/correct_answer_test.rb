@@ -13,13 +13,13 @@ class CorrectAnswerTest < ActiveSupport::TestCase
 
     correct_answer.choice_number = 0
     assert correct_answer.invalid?
-    # 原子的?
-    assert_equal "must be greater than 0; must be member of choices",
+    messg = "; must be member of the choices"
+    assert_equal "must be greater than 0" + messg,
     correct_answer.errors[:choice_number].join('; ')
 
     correct_answer.choice_number = 0.5
     assert correct_answer.invalid?
-    assert_equal "must be an integer; must be member of choices",
+    assert_equal "must be an integer" + messg,
     correct_answer.errors[:choice_number].join('; ')
 
     correct_answer.choice_number = 1

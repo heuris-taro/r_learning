@@ -4,6 +4,7 @@ one:
   question_id: 1
   choice_number: 1
   description: Choice1
+  explanation: Expla1
 
 two:
   question_id: 1

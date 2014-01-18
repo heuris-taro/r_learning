@@ -54,7 +54,6 @@ foo	db/seeds.rb	/^def foo(x)$/;"	f
 index	app/controllers/choices_controller.rb	/^  def index$/;"	f	class:ChoicesController
 index	app/controllers/correct_answers_controller.rb	/^  def index$/;"	f	class:CorrectAnswersController
 index	app/controllers/questions_controller.rb	/^  def index$/;"	f	class:QuestionsController
-must_be_member	app/models/correct_answer.rb	/^  def must_be_member$/;"	f	class:CorrectAnswer
 new	app/controllers/choices_controller.rb	/^  def new$/;"	f	class:ChoicesController
 new	app/controllers/correct_answers_controller.rb	/^  def new$/;"	f	class:CorrectAnswersController
 new	app/controllers/questions_controller.rb	/^  def new$/;"	f	class:QuestionsController

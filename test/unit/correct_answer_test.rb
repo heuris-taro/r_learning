@@ -5,7 +5,6 @@ class CorrectAnswerTest < ActiveSupport::TestCase
     correct_answer = correct_answers(:one)
     assert correct_answer.valid?
   end
-
   test "correct_answer attributes must not be empty" do
     correct_answer = correct_answers(:one)
     correct_answer.choice_number = nil
@@ -18,6 +17,13 @@ class CorrectAnswerTest < ActiveSupport::TestCase
     assert ! correct_answer.save
     assert_equal "has already been taken",
       correct_answer.errors[:choice_number].join('; ')
+  end
+
+  test "choice_number must be member of the choices" do
+    correct_answer = correct_answers(:one)
+    valid_choice = correct_answer.question.choices.size
+    correct_answer.choice_number = valid_choice
+    assert correct_answer.valid?
   end
   test "choice_number must not be member of the choices" do
     correct_answer = correct_answers(:one)

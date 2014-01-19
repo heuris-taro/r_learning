@@ -5,18 +5,13 @@ class ChoiceTest < ActiveSupport::TestCase
     choice = choices(:one)
     assert choice.valid?
   end
-  test "explanation can be empty" do
-    choice = choices(:one)
-    choice.explanation = nil
-    assert choice.valid?
-  end
-
   test "choice attributes must not be empty" do
     choice = Choice.new # empty object
     assert choice.invalid?
     assert choice.errors[:choice_number].any?
     assert choice.errors[:description].any?
   end
+
   test "choice_number must be natural number" do
     choice = choices(:one)
 
@@ -33,11 +28,18 @@ class ChoiceTest < ActiveSupport::TestCase
     assert_equal "must be greater than 0",
     choice.errors[:choice_number].join('; ')
   end
+
   test "pair of choice_number and question_id must be unique" do
     choice = Choice.new(choice_number: choices(:one).choice_number,
 		       question_id: choices(:one).question_id)
     assert ! choice.save
     assert_equal "has already been taken",
       choice.errors[:choice_number].join('; ')
+  end
+
+  test "explanation can be empty" do
+    choice = choices(:one)
+    choice.explanation = nil
+    assert choice.valid?
   end
 end

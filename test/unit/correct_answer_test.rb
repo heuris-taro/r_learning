@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class CorrectAnswerTest < ActiveSupport::TestCase
+  test "correct_answer must be valid" do
+    correct_answer = correct_answers(:one)
+    assert correct_answer.valid?
+  end
 
   test "correct_answer attributes must not be empty" do
     correct_answer = correct_answers(:one)
@@ -15,10 +19,10 @@ class CorrectAnswerTest < ActiveSupport::TestCase
     assert_equal "has already been taken",
       correct_answer.errors[:choice_number].join('; ')
   end
-  test "choice_number must be member of the choices" do
+  test "choice_number must not be member of the choices" do
     correct_answer = correct_answers(:one)
-    result = Choice.find_by_question_id_and_choice_number(
-      correct_answer.question_id, correct_answer.choice_number)
-    assert_not_nil result
+    invalid_choice = correct_answer.question.choices.size.succ
+    correct_answer.choice_number = invalid_choice
+    assert correct_answer.invalid?
   end
 end

@@ -4,26 +4,9 @@ class CorrectAnswerTest < ActiveSupport::TestCase
 
   test "correct_answer attributes must not be empty" do
     correct_answer = correct_answers(:one)
-    correct_answer.choice_number = nil # question_idはnilにできない、validation時関連付けのため
+    correct_answer.choice_number = nil
     assert correct_answer.invalid?
     assert correct_answer.errors[:choice_number].any?
-  end
-  test "choice_number must be natural number" do
-    correct_answer = correct_answers(:one)
-
-    correct_answer.choice_number = 0
-    assert correct_answer.invalid?
-    messg = "; must be member of the choices"
-    assert_equal "must be greater than 0" + messg,
-    correct_answer.errors[:choice_number].join('; ')
-
-    correct_answer.choice_number = 0.5
-    assert correct_answer.invalid?
-    assert_equal "must be an integer" + messg,
-    correct_answer.errors[:choice_number].join('; ')
-
-    correct_answer.choice_number = 1
-    assert correct_answer.valid?
   end
   test "pair of choice_number and question_id must be unique" do
     correct_answer = CorrectAnswer.new(choice_number: correct_answers(:one).choice_number,

@@ -11,3 +11,14 @@
 </p>
 <% end %>
 
+
+
+
+
+<% if %>
+<%= form_tag(explain_question_path(@question), method: :get) do %>
+  <%= label_tag :choice %>
+  <%= radio_button_tag :choice, '1' %>
+<%= submit_tag %>
+<% end %>
+<% end %>

@@ -3,14 +3,14 @@ class CorrectAnswer < ActiveRecord::Base
   attr_accessible :choice_number, :question_id
   belongs_to :question
 
-  validates :question_id, presence: true
+  validates :question, presence: {message: 'does not exist'}
   validates :choice_number, presence: true
   validates :choice_number, numericality: {only_integer: true, greater_than: 0}
+  validates :choice_number, uniqueness: {scope: :question_id}
 
-  validate :must_be_member
-  def must_be_member
-    unless (1 .. self.question.choices.size) === self.choice_number
-      errors.add(:base,"Must be member of choices")
+  validates_each :choice_number do |record, attr, value|
+    if record.question.choices.where('choice_number=?', value).count == 0
+      record.errors.add(attr, "must be member of the choices")
     end
   end
 end

@@ -29,7 +29,10 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.3)
+    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.4)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -39,6 +42,7 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    ffi (1.9.3-x86-mingw32)
     hike (1.2.3)
     i18n (0.6.9)
     journey (1.0.4)
@@ -49,9 +53,24 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     polyglot (0.3.3)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry (0.9.12.4-x86-mingw32)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+      win32console (~> 1.3)
+    pry-doc (0.5.1)
+      pry (>= 0.9)
+      yard (>= 0.8)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -82,6 +101,12 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    slop (3.4.7)
+    spork (1.0.0rc4)
+    spork (1.0.0rc4-x86-mingw32)
+      win32-process
+    spork-testunit (0.0.8)
+      spork (>= 0.6.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -98,15 +123,25 @@ GEM
     uglifier (2.4.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    win32-process (0.7.4)
+      ffi (>= 1.0.0)
+    win32console (1.3.2-x86-mingw32)
+    yard (0.8.7.3)
 
 PLATFORMS
   ruby
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  pry
+  pry-doc
+  pry-rails
   rails (= 3.2.16)
   sass-rails (~> 3.2.3)
+  spork (~> 1.0rc)
+  spork-testunit
   sqlite3
   uglifier (>= 1.0.3)

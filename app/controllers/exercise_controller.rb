@@ -1,6 +1,7 @@
 class ExerciseController < ApplicationController
   def start
-    @question = Question.first
+    ids=Question.select(:id).shuffle
+    @question = Question.find(ids[0])
 
     respond_to do |format|
       format.html { redirect_to @question}

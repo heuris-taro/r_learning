@@ -7,4 +7,10 @@ class CorrectAnswer < ActiveRecord::Base
   validates :choice_number, presence: true
   validates :choice_number, numericality: {only_integer: true, greater_than: 0}
   validates :choice_number, uniqueness: {scope: :question_id}
+
+  validates_each :choice_number do |record, attr, value|
+    if record.question.choices.where('choice_number=?', value).count == 0
+      record.errors.add(attr, "must be member of the choices")
+    end
+  end
 end

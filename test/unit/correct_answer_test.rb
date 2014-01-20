@@ -18,5 +18,13 @@ class CorrectAnswerTest < ActiveSupport::TestCase
     assert_equal "has already been taken",
       correct_answer.errors[:choice_number].join('; ')
   end
-
+  test "correct_answer must be member of the choices" do
+    correct_answer = correct_answers(:one)
+    invalid_choice_num = correct_answer.question.choices.
+      maximum(:choice_number).succ
+    correct_answer.choice_number = invalid_choice_num
+    assert correct_answer.invalid?
+    assert_equal "must be member of the choices",
+      correct_answer.errors[:choice_number].join('; ')
+  end
 end

@@ -1,1 +1,11 @@
 <%= @question.explanation %>
+
+<% if @mistake %>
+<p>
+不正解！あなたが選んだ答は<%= @mistake %>番です。
+</p>
+<% else %>
+<p>
+正解！
+</p>
+<%end%>

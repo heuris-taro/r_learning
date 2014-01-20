@@ -7,26 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>	<!-- controllerの名前をクラス名に動的に設定 -->
-	<div id="banner">
-		<%= image_tag("logo.png") %>
-		<%= @page_title || "Pragmatic Bookshelf" %>		<!-- 左辺が偽だった場合、右辺が真となる→コントローラからページ名の指示が無い場合はPragmatic Bookshelfがページ名になる。 -->
-	</div>
-	<div id="columns">
-		<div id="side">
-			<% if @cart %>
-				<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>	<!-- サイドバーのカート -->
-					<%= render(@cart) %>
-				<% end %>
-			<% end %>
-			
-			<ul>
-				<li><a href="/">ホーム</a></li>
-				<!--<li><%= link_to "カートの内容をみる", @cart %></li>-->
-				<li><a href="http://www.../faq">よくある質問</a></li>
-				<li><a href="http://www.../news">ニュース</a></li>
-				<li><a href="http://www.../contact">お問い合わせ</a></li>
-			</ul>
+	<div id="headder">
+		<div id="title_area">
+			<%= image_tag("logo.png") %>
+			<%= @page_title || "R-learning" %>		<!-- 左辺が偽だった場合、右辺が真となる→コントローラからページ名の指示が無い場合はPragmatic Bookshelfがページ名になる。 -->
 		</div>
+	</div>
+	
+	<div id="global_navigation">
+		<ul>
+			<li><a href="/">ホーム</a></li>
+			<!--<li><%= link_to "カートの内容をみる", @cart %></li>-->
+			<li><a href="http://www.../faq">よくある質問</a></li>
+			<li><a href="http://www.../news">ニュース</a></li>
+			<li><a href="http://www.../contact">お問い合わせ</a></li>
+		</ul>
+	</div>
+	
+	<div id="columns">
 		<div id="main">
 			<%= yield %>		<!-- 各html.erbファイルの内容を反映する -->
 		</div>

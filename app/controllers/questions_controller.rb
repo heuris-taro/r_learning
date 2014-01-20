@@ -88,6 +88,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     # show.html から選択番号を受け取る
     p 'DEBUG', params
-    # @mistake
+    # @mistake # 間違えた場合は解答者が選択した番号、そうでないならnil
   end
 end

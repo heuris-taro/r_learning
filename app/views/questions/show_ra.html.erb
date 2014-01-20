@@ -1,0 +1,16 @@
+<%= @question.description %>
+<% choices = @question.choices %>
+
+<%= form_tag(explain_question_path(@question), method: :get) do %>
+<% choices.each_with_index {|choice, idx| %>
+<%= radio_button_tag :choice, idx.succ %>
+<%= label_tag idx.succ %>
+<%= label_tag ': ' %>
+<%= label_tag choice.description %>
+	<br>
+<% } %>
+<p>
+<%= submit_tag("解答する") %>
+</p>
+<% end %>
+

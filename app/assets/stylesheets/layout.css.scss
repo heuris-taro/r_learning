@@ -1,0 +1,125 @@
+#banner {
+	background: #99cc99;
+	padding: 10px;
+	border-bottom: 2px solid;
+	font: small-caps 40px/40px "Times New Roman", serif;
+	color: #228822;
+	text-align: center;
+	
+	img {
+		float: left;
+	}
+}
+
+#notice {
+	color: #000000 !important;
+	border: 2px solid red;
+	padding: 1em;
+	margin-bottom: 2em;
+	background-color: #f0f0f0;
+	font: bold smaller sans-serif;
+}
+
+#columns {
+	background: #114411;
+	
+	#main {
+	margin-left: 17em;
+	padding: 1em;
+	background: white;
+	}
+	
+	#side {
+		float: left;
+		padding: 1em 1em;
+		width: 15em;
+		background: #114411;
+		
+		form, div {
+			display: inline;
+		}
+		
+		input {
+			font-size: small;
+		}
+		
+		#cart {
+			font-size: smaller;
+			color: white;
+			
+			table {
+				border-top: 1px dotted #559955;
+				border-bottom: 1px dotted #559955;
+				margin-bottom: 10px;
+			}
+			table tr {
+				background-color: transparent;
+			}
+			table .item_img, table .item_remove {
+				display: none;
+			}
+			table td.item_quantity {
+				white-space: nowrap;
+			}
+			table td.cart_contents a{
+				text-align: left;
+				color: #bbffbb;
+				font-size: small;
+			}
+		}
+		
+		ul {
+			padding: 0;
+			
+			li {
+				list-style:none;
+				
+				a {
+					color: #bbffbb;
+					font-size: small;
+				}
+			}
+		}
+		.time {
+			color: #ffffff;
+			font-size: small;
+			font-weight: bold;
+		}
+	}
+}
+
+.depot_form {
+	fieldset {
+		background: #eeffee;
+		
+		legend {
+			color: #ddffdd;
+			background: #114411;
+			font-family: sans-serif;
+			padding: 0.2em 1em;
+		}
+	}
+	
+	form {
+		label {
+			width: 5em;
+			float: left;
+			text-align: right;
+			padding-top: 0.2em;
+			margin-right: 0.1em;
+			display: block;
+		}
+		
+		select, textarea, input {
+			margin-left: 0.5em;
+		}
+		
+		.submit {
+			margin-left: 4em;
+		}
+		
+		br {
+			display: none;
+		}
+	}
+}

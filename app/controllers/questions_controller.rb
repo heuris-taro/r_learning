@@ -84,7 +84,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1/explain
   def explain
     @question = Question.find(params[:id])
-    # p params # show.html から選択番号を受け取る
+     p 'DEBUG', params # show.html から選択番号を受け取る
     # @mistake
   end
 end

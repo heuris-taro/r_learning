@@ -2,23 +2,32 @@
 <% choices = @question.choices %>
 
 <%= form_tag(explain_question_path(@question), method: :get) do %>
-<% choices.each_with_index {|choice, idx| %>
-<%= button_tag(choice.description, class: :choice_b, value:idx.succ, type: :button) %>
-	<br>
-<% } %>
-<p>
-<%= submit_tag("解答する") %>
+  <% choices.each_with_index {|choice, idx| %>
+  <%= button_tag(choice.description, class: :choice_b, value:idx.succ, type: :button) %>
+  <br>
+  <% } %>
+  <p>
+  <%= submit_tag("解答する") %>
 </p>
 <% end %>
-
-
-
-
-
-<% if false%>
+<%# {"utf8"=>"✓", "commit"=>"解答する", "action"=>"explain", "controller"=>"questions", "id"=>"2"} %>
+<% if true%>
 <%= form_tag(explain_question_path(@question), method: :get) do %>
-  <%= label_tag :choice %>
+  <%= label_tag :choice_1 %>
   <%= radio_button_tag :choice, '1' %>
-<%= submit_tag %>
+  <%= label_tag :choice_2 %>
+  <%= radio_button_tag :choice, '2' %>
+  <%= submit_tag %>
 <% end %>
+<%# {"utf8"=>"✓", "choice"=>"2", "commit"=>"Save changes", "action"=>"explain", "controller"=>"questions", "id"=>"2"} %>
+
+<%= form_tag(explain_question_path(@question), method: :get) do %>
+  <%= label_tag :choices_1 %>
+  <%= check_box :choices, '1' %>
+  <%= label_tag :choices_2 %>
+  <%= check_box :choices, '2' %>
+  <%= submit_tag %>
+<% end %>
+<%# {"utf8"=>"✓", "choices"=>{"1"=>"1", "2"=>"0"}, "commit"=>"Save changes", "action"=>"explain", "controller"=>"questions", "id"=>"2"} %>
+
 <% end %>

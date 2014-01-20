@@ -8,21 +8,15 @@ class Choice < ActiveRecord::Base
   validates :choice_number, uniqueness: {scope: :question_id}
   validates_each :choice_number do |record, attr, value|
     choice_ns = record.question.choices.select(:choice_number)
-    if choice_ns.maximum(:choice_number) == choice_ns.count # 抜けがないなら
+    max_cns = choice_ns.maximum(:choice_number)
+    if max_cns == choice_ns.count # 抜けがないなら
       unless choice_ns.count.succ == value
 	record.errors.add(attr, "must be #{choice_ns.count.succ}")
       end
     else
-# val がギャップに含まれる?
-<<SQL
-SELECT (N.num + 1) AS gap_start,
-       (MIN(M.num) - 1) AS gap_end
-  FROM Numbers N INNER JOIN Numbers M
-    ON M.num > N.num
- GROUP BY N.num
-HAVING (N.num + 1) < MIN(M.num);
-
-SQL
+    # val がギャップに含まれる?(|{number}|: 密で小さい場合)
+    differences = (1 .. max_cns).to_a - choice_ns.map(&:choice_number)
+    record.errors.add(attr, "must be #{differences}")
     end
   end
 end

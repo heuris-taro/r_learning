@@ -86,8 +86,12 @@ class QuestionsController < ApplicationController
   # GET /questions/1/explain
   def explain
     @question = Question.find(params[:id])
-    # show.html から選択番号を受け取る
-    p 'DEBUG', params
-    # @mistake
+    choiced_ans = params[:choice].to_i
+    #p 'DEBUG',params
+    corrects = @question.correct_answers.map(&:question_id)
+    @mistake = nil
+    unless corrects[0] == choiced_ans
+      @mistake = choiced_ans
+    end
   end
 end

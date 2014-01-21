@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .questions{
-  // double column
+  // multi column
   div#columns{
     div.choices{
-      padding: 0px 2px;
-      margin: 10px 0px;
       float:left;
       width: 45%;
-      
+
+      input {
+	float:left;
+      }
       label > pre{
-        //height: 50px;
-        //display: inline;
+	margin: 5px;
       }
     }
     .clear-fix{
@@ -20,7 +20,19 @@
     }
   }
 
-  @media screen and (max-width: 770px) {
-    //single column
+
+}
+@media screen and (max-width: 770px) {
+  //single column
+.questions{
+  div#columns{
+      div.choices{
+	float: none;
+	width: 100%;
+	input {
+	  float:none;
+	}
+      }
+    }
   }
 }

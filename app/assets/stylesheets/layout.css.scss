@@ -13,7 +13,23 @@
 		}
 	}
 }
-
+#global_navigation {
+	float: none;
+  width: 100%;
+  padding: 0;
+	background: #114411;
+	ul {
+		margin: 0 auto;
+		width: 80%;
+		padding: 1em;
+		list-style: none;
+		background: white;
+		li{
+			display: inline;
+			width:80px;
+		}
+	}
+}
 #notice {
 	color: #000000 !important;
 	border: 2px solid red;
@@ -25,20 +41,11 @@
 
 #columns {
 	background: #114411;
-	
 	#main {
 		margin: auto;
 		width: 80%;
 		padding: 1em;
 		background: white;
-		#global_navigation {
-			ul{
-				list-style: none;
-			}
-			li{
-				float: left;
-			}
-		}
 	}
 }
 

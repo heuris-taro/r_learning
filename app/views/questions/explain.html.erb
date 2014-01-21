@@ -1,5 +1,3 @@
-<%= @question.explanation %>
-
 <% if @mistake %>
 <p>
 不正解！あなたが選んだ答は<%= @mistake %>番です。
@@ -9,3 +7,9 @@
 正解！
 </p>
 <%end%>
+
+<%= @question.explanation %>
+<% @question.choices.each{|c| %>
+<p><%= c.description %></p>
+<p><%= c.explanation %></p>
+<%  } %>

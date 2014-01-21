@@ -87,9 +87,9 @@ class QuestionsController < ApplicationController
   def explain
     @question = Question.find(params[:id])
     choiced_ans = params[:choice].to_i
-    #p 'DEBUG',params
-    corrects = @question.correct_answers.map(&:question_id)
+    corrects = @question.correct_answers.map(&:choice_number)
     @mistake = nil
+    p 'DEBUG', choiced_ans, corrects
     unless corrects[0] == choiced_ans
       @mistake = choiced_ans
     end

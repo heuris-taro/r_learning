@@ -1,7 +1,26 @@
 // Place all the styles related to the Questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.question{
-  div#main{
+.questions{
+  // double column
+  div#columns{
+    div.choices{
+      padding: 0px 2px;
+      margin: 10px 0px;
+      float:left;
+      width: 45%;
+      
+      label > pre{
+        //height: 50px;
+        //display: inline;
+      }
+    }
+    .clear-fix{
+      clear: both;
+    }
+  }
+
+  @media screen and (max-width: 770px) {
+    //single column
   }
 }

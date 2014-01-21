@@ -4,13 +4,14 @@
 <%= form_tag(explain_question_path(@question), method: :get) do %>
 
 <% choices.each do |choice| %>
-<%= radio_button_tag :choice, choice.choice_number %>
-<%= label_tag "choice_#{choice.choice_number}",
-  content_tag(:pre, choice.description)
- %>
+<div class='choices'>
+  <%= radio_button_tag :choice, choice.choice_number %>
+  <%= label_tag "choice_#{choice.choice_number}",
+    content_tag(:pre, choice.description)
+   %>
+</div>
+
 <% end %>
-<p>
-<%= submit_tag("解答する") %>
-</p>
+<div class='clear-fix'><%= submit_tag("解答する") %></div>
 <% end %>
 

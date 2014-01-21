@@ -1,0 +1,22 @@
+<div class="admin">
+  <% if flash[:alert] %>
+    <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  
+  <%= form_tag do %>
+    <fieldset>
+      <h2>管理者ログイン</h2>
+      <div>
+        <%= label_tag :name, 'Ａｄｍｉｎ ＩＤ：' %>
+        <%= text_field_tag :name, params[:name] %>
+      </div>
+      <div>
+        <%= label_tag :password, 'パスワード：' %>
+        <%= password_field_tag :password, params[:password] %>
+      </div>
+      <div id="login">
+        <%= submit_tag "ログイン" %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>

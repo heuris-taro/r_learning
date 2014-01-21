@@ -8,5 +8,5 @@ one:
 
 two:
   question_id: 1
-  choice_number: 2
+  choice_number: 10
   description: Choice2

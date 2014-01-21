@@ -1,1 +1,20 @@
-<%= @question.explanation %>
+<% if @mistake %>
+<p>
+不正解！あなたが選んだ答えは(<%= num2alph @mistake %>)です
+</p>
+<% else %>
+<p>
+正解！
+</p>
+<%end%>
+<%= content_tag(:p, @question.explanation) %>
+<% @question.choices.each do |choice| %>
+  <% if @corrects.include?(choice.choice_number) %>
+  <%= content_tag(:b, num2alph(choice.choice_number)) %>
+  <% else %>
+  <%= num2alph choice.choice_number %>
+  <% end %>
+  <br>
+  <%= format_choice(choice.explanation) %>
+  <%= content_tag(:pre, choice.description) %>
+<%  end %>

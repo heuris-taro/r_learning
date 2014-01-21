@@ -26,6 +26,10 @@ class ChoicesController < ApplicationController
   # GET /choices/new.json
   def new
     @choice = Choice.new
+    if question = Question.find(params[:question])
+      @choice.question_id = question.id
+    end
+    @choice.choice_number = @choice.question.choices.maximum(:choice_number).succ
 
     respond_to do |format|
       format.html # new.html.erb

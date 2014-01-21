@@ -5,18 +5,28 @@
   
   <%= form_tag do %>
     <fieldset>
-      <h2>管理者ログイン</h2>
-      <div>
-        <%= label_tag :name, 'Ａｄｍｉｎ ＩＤ：' %>
-        <%= text_field_tag :name, params[:name] %>
-      </div>
-      <div>
-        <%= label_tag :password, 'パスワード：' %>
-        <%= password_field_tag :password, params[:password] %>
-      </div>
-      <div id="login">
-        <%= submit_tag "ログイン" %>
-      </div>
+      <tr>
+        <th>
+          <h2>管理者ログイン</h2>
+        </th>
+        <td>
+          <div class="admin">
+            <%= label_tag :name, 'Ａｄｍｉｎ ＩＤ：' %>
+            <%= text_field_tag :name, params[:name] %>
+          </div>
+        </td>
+        <td>
+          <div>
+            <%= label_tag :password, 'パスワード：' %>
+            <%= password_field_tag :password, params[:password] %>
+          </div>
+        </td>
+        <td>
+          <div id="login">
+            <%= submit_tag "ログイン" %>
+          </div>
+        </td>
+      </tr>
     </fieldset>
   <% end %>
 </div>

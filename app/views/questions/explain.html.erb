@@ -1,6 +1,6 @@
 <% if @mistake %>
 <p>
-不正解！あなたが選んだ答は<%= @mistake %>番です。
+不正解！あなたが選んだ答えは<%= @mistake %>です
 </p>
 <% else %>
 <p>
@@ -8,8 +8,13 @@
 </p>
 <%end%>
 
-<%= @question.explanation %>
-<% @question.choices.each{|c| %>
-<p><%= c.description %></p>
-<p><%= c.explanation %></p>
-<%  } %>
+<%= content_tag(:p, @question.explanation) %>
+<% @question.choices.each do |choice| %>
+  <% if @corrects.include?(choice.choice_number) %>
+  <%= content_tag(:b, choice.choice_number) %>
+  <% else %>
+  <%= choice.choice_number %>
+  <% end %>
+  <%= choice.explanation %>
+  <%= content_tag(:pre, choice.description) %>
+<%  end %>

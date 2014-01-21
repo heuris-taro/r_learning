@@ -1,6 +1,17 @@
 <h1>Editing question</h1>
 
 <%= render 'form' %>
+<% @question.choices.each do |ch| %>
+<%= link_to 'choice', ch %><%= ch.choice_number %> |
+<% end %>
+<%= link_to 'New Choice', new_choice_path choice %>
+<br>
+
+<% @question.correct_answers.each do |ca| %>
+<%= link_to 'answer', ca %><%= ca.choice_number %> |
+<% end %>
+<%= link_to 'New Correct answer', new_correct_answer_path %>
+<br>
 
 <%= link_to 'Show', @question %> |
 <%= link_to 'Back', questions_path %>

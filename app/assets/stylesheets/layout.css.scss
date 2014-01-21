@@ -1,13 +1,27 @@
-#banner {
+#headder {
 	background: #99cc99;
 	padding: 10px;
 	border-bottom: 2px solid;
-	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #228822;
-	text-align: center;
-	
-	img {
-		float: left;
+	#title_area{
+		width: 80%;
+		margin: auto;
+		font: small-caps 40px/40px "Times New Roman", serif;
+		color: #228822;
+		text-align: center;
+		img {
+			float: left;
+		}
+		#global_navigation {
+			float:none;
+      width:80%;
+      padding:0;
+			ul {
+				list-style: none;
+				li{
+					display: inline;
+				}
+			}
+		}
 	}
 }
 
@@ -22,69 +36,11 @@
 
 #columns {
 	background: #114411;
-	
 	#main {
-	margin-left: 17em;
-	padding: 1em;
-	background: white;
-	}
-	
-	#side {
-		float: left;
-		padding: 1em 1em;
-		width: 15em;
-		background: #114411;
-		
-		form, div {
-			display: inline;
-		}
-		
-		input {
-			font-size: small;
-		}
-		
-		#cart {
-			font-size: smaller;
-			color: white;
-			
-			table {
-				border-top: 1px dotted #559955;
-				border-bottom: 1px dotted #559955;
-				margin-bottom: 10px;
-			}
-			table tr {
-				background-color: transparent;
-			}
-			table .item_img, table .item_remove {
-				display: none;
-			}
-			table td.item_quantity {
-				white-space: nowrap;
-			}
-			table td.cart_contents a{
-				text-align: left;
-				color: #bbffbb;
-				font-size: small;
-			}
-		}
-		
-		ul {
-			padding: 0;
-			
-			li {
-				list-style:none;
-				
-				a {
-					color: #bbffbb;
-					font-size: small;
-				}
-			}
-		}
-		.time {
-			color: #ffffff;
-			font-size: small;
-			font-weight: bold;
-		}
+		margin: auto;
+		width: 80%;
+		padding: 1em;
+		background: white;
 	}
 }
 

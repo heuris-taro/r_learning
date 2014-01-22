@@ -123,3 +123,15 @@ to the development database. Passing an argument will connect you to a different
 database, like <tt>rails dbconsole production</tt>. Currently works for MySQL,
 PostgreSQL and SQLite 3.
 
+# テスト時の環境読み込み時間短縮
+```
+$ spork # テストサーバを走らせる
+$ testdrb -Itest test/unit/correct_answer_test.rb # 別プロセスで
+```
+毎回読み込む命令は test/test_helper.rb にある
+
+任意で`.bashrc`に追加
+```
+alias td="testdrb -I test"
+alias tdall="testdrb -I test ./test/**/*_test.rb"
+```

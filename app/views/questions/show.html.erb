@@ -1,16 +1,15 @@
-<%= @question.description %>
-<% choices = @question.choices %>
+<%= sanitize @question.description %>
 
 <%= form_tag(explain_question_path(@question), method: :get) do %>
+<% @question.choices.each do |choice| %>
+<div class='choices'>
+  <%= radio_button_tag :choice, choice.choice_number %>
+  <%= label_tag "choice_#{choice.choice_number}",
+    content_tag(:pre, choice.description)
+   %>
+</div>
 
-<% choices.each do |choice| %>
-<%= radio_button_tag :choice, choice.choice_number %>
-<%= label_tag "choice_#{choice.choice_number}",
-  content_tag(:pre, choice.description)
- %>
 <% end %>
-<p>
-<%= submit_tag("解答する") %>
-</p>
+<div class='clear-fix'><%= submit_tag("解答する") %></div>
 <% end %>
 

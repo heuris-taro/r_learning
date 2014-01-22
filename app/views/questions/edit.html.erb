@@ -2,15 +2,15 @@
 
 <%= render 'form' %>
 <% @question.choices.each do |ch| %>
-<%= link_to 'choice', ch %><%= ch.choice_number %> |
+  <%= link_to "choice#{ch.choice_number}", ch %> |
 <% end %>
-<%= link_to 'New Choice', new_choice_path choice %>
+<%= link_to 'New Choice', new_choice_path(question:@question) %>
 <br>
 
 <% @question.correct_answers.each do |ca| %>
-<%= link_to 'answer', ca %><%= ca.choice_number %> |
+  <%= link_to "answer#{ca.choice_number}", ca %> |
 <% end %>
-<%= link_to 'New Correct answer', new_correct_answer_path %>
+<%= link_to 'New Correct answer', new_correct_answer_path(question:@question) %>
 <br>
 
 <%= link_to 'Show', @question %> |

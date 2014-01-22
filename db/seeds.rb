@@ -194,3 +194,134 @@ CorrectAnswer.create(
 )
 
 ##############################################################################
+##############################################################################
+#				Question 3				     #
+##############################################################################
+# Question
+question = Question.create(
+  description: <<EODSC,
+  if文の条件で、真となるものを選んでください。
+EODSC
+  explanation: <<EOEPN
+  falseとnilのみ偽になります。C言語族の方は0に注意。
+EOEPN
+)
+
+# Choice
+Choice.create(
+ question_id: question.id,
+ choice_number: 1,
+ description: '1',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 2,
+ description: '0',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 3,
+ description: 'true',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 4,
+ description: '""',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 5,
+ description: 'nil',
+ explanation: <<EOEPN
+EOEPN
+)
+
+# CorrectAnswer
+CorrectAnswer.create(
+  question_id: question.id,
+  choice_number: 1
+)
+CorrectAnswer.create(
+  question_id: question.id,
+  choice_number: 2
+)
+CorrectAnswer.create(
+  question_id: question.id,
+  choice_number: 3
+)
+CorrectAnswer.create(
+  question_id: question.id,
+  choice_number: 4
+)
+
+##############################################################################
+##############################################################################
+#				Question 4				     #
+##############################################################################
+# Question
+question = Question.create(
+  description: <<EODSC,
+<pre>
+file = open("test.txt")
+begin
+  line_no = 1
+  while true
+    line = file.[____]
+    printf "%5d: %s", line_no, line
+    line_no += 1
+  end
+rescue EOFError
+end
+file.close
+</pre>
+EODSC
+  explanation: <<EOEPN
+getsとreadlineは入力を一行読みます。終端に来るとgetsはnilを返しますが、readlineはEOFErrorを発します。
+EOEPN
+)
+
+# Choice
+Choice.create(
+ question_id: question.id,
+ choice_number: 1,
+ description: 'gets',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 2,
+ description: 'readline',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 3,
+ description: 'readlines',
+ explanation: <<EOEPN
+EOEPN
+)
+Choice.create(
+ question_id: question.id,
+ choice_number: 4,
+ description: 'read',
+ explanation: <<EOEPN
+EOEPN
+)
+
+# CorrectAnswer
+CorrectAnswer.create(
+  question_id: question.id,
+  choice_number:2
+)
+
+##############################################################################

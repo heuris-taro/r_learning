@@ -26,6 +26,9 @@ class CorrectAnswersController < ApplicationController
   # GET /correct_answers/new.json
   def new
     @correct_answer = CorrectAnswer.new
+    if question = Question.find(params[:question])
+      @correct_answer.question_id = question.id
+    end
 
     respond_to do |format|
       format.html # new.html.erb

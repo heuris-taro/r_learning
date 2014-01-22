@@ -14,9 +14,10 @@
 			float: left;
 		}
 	}
+
 }
 #global_navigation {
-	float: none;
+  float: none;
   width: 100%;
 	height: 30px;
   padding: 0;
@@ -41,14 +42,15 @@
 			height: 18px;
 		}
 	}
+
 }
 #notice {
-	color: #000000 !important;
-	border: 2px solid red;
-	padding: 1em;
-	margin-bottom: 2em;
-	background-color: #f0f0f0;
-	font: bold smaller sans-serif;
+  color: #000000 !important;
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0;
+  font: bold smaller sans-serif;
 }
 
 #columns {
@@ -62,38 +64,3 @@
 	}
 }
 
-.depot_form {
-	fieldset {
-		background: #eeffee;
-		
-		legend {
-			color: #ddffdd;
-			background: #114411;
-			font-family: sans-serif;
-			padding: 0.2em 1em;
-		}
-	}
-	
-	form {
-		label {
-			width: 5em;
-			float: left;
-			text-align: right;
-			padding-top: 0.2em;
-			margin-right: 0.1em;
-			display: block;
-		}
-		
-		select, textarea, input {
-			margin-left: 0.5em;
-		}
-		
-		.submit {
-			margin-left: 4em;
-		}
-		
-		br {
-			display: none;
-		}
-	}
-}

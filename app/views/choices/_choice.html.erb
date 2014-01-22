@@ -1,10 +1,13 @@
 <div class='choices'>
-  <% if false %>
-  <%= choice.choice_number %>
-  <%= content_tag(:pre, choice.description) %>
-  <% end %>
-  <%= radio_button_tag :choice, choice.choice_number %>
-      <%= label_tag "choice_#{choice.choice_number}",
-        content_tag(:pre, choice.description)
-       %>
- </div>
+<% suffix = "" %>
+<% if @selection_type == 'single' %>
+  <%= radio_button_tag "choice[#{choice.choice_number}]", '1' %>
+<% suffix = "_1" %>
+<% elsif @selection_type == 'multiple' %>
+  <%= check_box :choice, choice.choice_number %>
+<% end %>
+
+  <%= label_tag "choice_#{choice.choice_number}" + suffix,
+    content_tag(:pre, choice.description)
+   %>
+</div>

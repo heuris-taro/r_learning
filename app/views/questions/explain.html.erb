@@ -1,6 +1,8 @@
 <% if @mistake %>
 <p>
-不正解！あなたが選んだ答えは(<%= num2alph @mistake %>)です
+不正解！あなたが選んだ答えは
+<%= @mistake.map{|i|num2alph i} %>
+です
 </p>
 <% else %>
 正解！
@@ -9,7 +11,7 @@
 
 <% @question.choices.each do |choice| %>
   <% if @corrects.include?(choice.choice_number) %>
-  <%= content_tag(:b, num2alph(choice.choice_number)) %>
+  <%= content_tag(:strong, num2alph(choice.choice_number)) %>
   正解
   <% else %>
   <%= num2alph choice.choice_number %>

@@ -1,6 +1,7 @@
 <%= sanitize @question.description %>
 
-<%= form_tag(explain_question_path(@question), method: :get) do %>  <%= render @question.choices %>
+<%= form_tag(explain_question_path(@question), method: :get) do %>
+  <%= render @question.choices %>
   <div class='clear-fix'></div>
   <%= submit_tag("解答する") %>
 <% end %>

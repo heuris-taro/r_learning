@@ -29,7 +29,9 @@ class ChoicesController < ApplicationController
     if question = Question.find(params[:question])
       @choice.question_id = question.id
     end
-    @choice.choice_number = @choice.question.choices.maximum(:choice_number).succ
+    edge =  @choice.question.choices.maximum(:choice_number)
+    edge ||= 0
+    @choice.choice_number = edge.succ
 
     respond_to do |format|
       format.html # new.html.erb
@@ -49,7 +51,8 @@ class ChoicesController < ApplicationController
 
     respond_to do |format|
       if @choice.save
-        format.html { redirect_to @choice, notice: 'Choice was successfully created.' }
+        format.html { redirect_to edit_question_url(@choice.question),
+		      notice: 'Choice was successfully created.' }
         format.json { render json: @choice, status: :created, location: @choice }
       else
         format.html { render action: "new" }

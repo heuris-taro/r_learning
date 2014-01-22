@@ -15,7 +15,11 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-
+    if @question.correct_answers.count == 1
+      @selection_type = 'single'
+    else
+      @selection_type = 'multiple'
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @question }
@@ -36,6 +40,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])
+    @selection_type = 'multiple'
   end
 
   # POST /questions
@@ -45,7 +50,8 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
+        format.html { redirect_to edit_question_url(@question),
+		      notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
@@ -85,11 +91,13 @@ class QuestionsController < ApplicationController
   # GET /questions/1/explain
   def explain
     @question = Question.find(params[:id])
-    choiced_ans = params[:choice].to_i
-    #p 'DEBUG',params
-    @corrects = @question.correct_answers.map(&:choice_number)
+    choiced_ans = params[:choice].
+      each_with_object(Set.new) do |(k,v),a|
+      a<<k.to_i if v=='1'
+    end
+    @corrects = Set.new( @question.correct_answers.map(&:choice_number) )
     @mistake = nil
-    unless @corrects[0] == choiced_ans
+    unless @corrects == choiced_ans
       @mistake = choiced_ans
     end
   end

@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20140121050318) do
 
   create_table "choices", :force => true do |t|
-    t.integer  "question_id"
+    t.integer  "question_id",   :null => false
     t.integer  "choice_number"
     t.text     "description"
     t.datetime "created_at",    :null => false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20140121050318) do
   end
 
   create_table "correct_answers", :force => true do |t|
-    t.integer  "question_id"
+    t.integer  "question_id",   :null => false
     t.integer  "choice_number"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

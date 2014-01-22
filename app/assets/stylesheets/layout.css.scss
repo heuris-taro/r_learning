@@ -46,6 +46,12 @@
     padding: 1em;
     width: 90%;
     background: white;
+    table tr.even{
+      background-color: #FFEBF2;
+    }
+    table tr.odd{
+      background-color: #EDEDED;
+    }
   }
 }
 

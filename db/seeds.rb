@@ -269,17 +269,19 @@ CorrectAnswer.create(
 # Question
 question = Question.create(
   description: <<EODSC,
+<pre>
 file = open("test.txt")
 begin
   line_no = 1
   while true
-    line = file.[    ]
+    line = file.[____]
     printf "%5d: %s", line_no, line
     line_no += 1
   end
 rescue EOFError
 end
 file.close
+</pre>
 EODSC
   explanation: <<EOEPN
 getsとreadlineは入力を一行読みます。終端に来るとgetsはnilを返しますが、readlineはEOFErrorを発します。

@@ -1,5 +1,15 @@
-<h1><%= User.name %> さまの管理画面です</h1>
-<h2>ここでは、登録している問題数の表示や問題の内容について一覧表示します。</h2>
+<h1><%= @user.name %> さまの管理画面</h1>
 
-現在登録している問題数は <%= pluralize(@total_questions, "question") %> です。
+登録している問題数: <%= @total_questions %>
 
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Explanation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%= render @questions %>
+</table>

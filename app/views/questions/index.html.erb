@@ -1,7 +1,3 @@
-<h1><%= User.name %> さまの管理画面です</h1>
-<h3>登録している問題を一覧表示します。問題／解答の追加・変更・削除ができます</h3>
-
-現在登録している問題数は <%= pluralize(@total_questions, "question") %> です。
 
 <h1>登録問題一覧</h1>
 
@@ -14,15 +10,7 @@
     <th></th>
   </tr>
 
-<% @questions.each do |question| %>
-  <tr>
-    <td><%= question.description %></td>
-    <td><%= question.explanation %></td>
-    <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%= render @questions %>
 </table>
 
 <br />

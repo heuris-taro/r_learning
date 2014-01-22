@@ -3,18 +3,18 @@
 不正解！あなたが選んだ答えは(<%= num2alph @mistake %>)です
 </p>
 <% else %>
-<p>
 正解！
-</p>
 <%end%>
-<%= @question.explanation %>
+<p><%= @question.explanation %></p>
+
 <% @question.choices.each do |choice| %>
   <% if @corrects.include?(choice.choice_number) %>
   <%= content_tag(:b, num2alph(choice.choice_number)) %>
+  正解
   <% else %>
   <%= num2alph choice.choice_number %>
   <% end %>
   <br>
   <%= choice.explanation %>
   <%= content_tag(:pre, choice.description) %>
-<%  end %>
+<% end %>

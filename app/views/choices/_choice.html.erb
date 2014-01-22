@@ -1,0 +1,10 @@
+<div class='choices'>
+  <% if false %>
+  <%= choice.choice_number %>
+  <%= content_tag(:pre, choice.description) %>
+  <% end %>
+  <%= radio_button_tag :choice, choice.choice_number %>
+      <%= label_tag "choice_#{choice.choice_number}",
+        content_tag(:pre, choice.description)
+       %>
+ </div>

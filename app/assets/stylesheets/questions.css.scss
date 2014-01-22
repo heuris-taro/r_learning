@@ -5,11 +5,16 @@
   // multi column
   div#columns{
     div.choices{
+      padding: 0 1em;
       float:left;
-      width: 45%;
-
+      width: 40%;
+      
       input {
-	float:left;
+        display:block;
+        border: thin solid black;
+        //vertical-align: middle;
+        //margin-top: 5em;
+        float:left;
       }
       label > pre{
 	margin: 0.5em;

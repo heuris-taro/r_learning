@@ -91,9 +91,14 @@ class QuestionsController < ApplicationController
   # GET /questions/1/explain
   def explain
     @question = Question.find(params[:id])
-    choiced_ans = params[:choice].
-      each_with_object(Set.new) do |(k,v),a|
-      a<<k.to_i if v=='1'
+    if @question.correct_answers.count == 1
+      p 'DEBUG', params[:choice]
+      choiced_ans = Set.new([ params[:choice].to_i ])
+    else
+      choiced_ans = params[:choice].
+        each_with_object(Set.new) do |(k,v),a|
+        a<<k.to_i if v=='1'
+      end
     end
     @corrects = Set.new( @question.correct_answers.map(&:choice_number) )
     @mistake = nil
@@ -101,4 +106,6 @@ class QuestionsController < ApplicationController
       @mistake = choiced_ans
     end
   end
+
+
 end

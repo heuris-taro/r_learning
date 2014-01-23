@@ -1,7 +1,15 @@
+# coding: UTF-8
 class User < ActiveRecord::Base
-  # �������O�̃��[�U���f�[�^�x�[�X��2�l���Ȃ��������؂���
+  # 同じ名前のユーザがデータベースに2人いないかを検証する
   validates :name, presence: true, uniqueness: true
-  # �^�C�v�����p�X���[�h�Ɍ�肪�Ȃ��������؂���
+  # タイプしたパスワードに誤りがないかを検証する
   has_secure_password
   attr_accessible :name, :password_digest, :password, :password_confirmation
+  
+  def ensure_an_admin_remains
+    if User.count.zero?
+    raise "最後のユーザは削除できません"
+    end
+  end
+  
 end

@@ -26,9 +26,6 @@ class CorrectAnswersController < ApplicationController
   # GET /correct_answers/new.json
   def new
     @correct_answer = CorrectAnswer.new
-    if question = Question.find(params[:question])
-      @correct_answer.question_id = question.id
-    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +42,6 @@ class CorrectAnswersController < ApplicationController
   # POST /correct_answers.json
   def create
     @correct_answer = CorrectAnswer.new(params[:correct_answer])
-
     respond_to do |format|
       if @correct_answer.save
         format.html { redirect_to @correct_answer, notice: 'Correct answer was successfully created.' }

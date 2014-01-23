@@ -23,6 +23,10 @@
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+  <div class="field">
+    <%= check_box_tag :is_correct %>
+    <%= label_tag :is_correct, '正解にする' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,7 +1,4 @@
 #coding: UTF-8
-# AdminControllerコントローラクラス
-
-# 管理者のコントローラクラス
 class AdminController < ApplicationController
 
   

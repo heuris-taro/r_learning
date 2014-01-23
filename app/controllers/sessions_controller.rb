@@ -1,11 +1,6 @@
 #coding: UTF-8
-# AdminControllerコントローラクラス
-# Author:: ANDO
-# Date:: 2014.01.16
-
-# セッションのコントローラクラス
 class SessionsController < ApplicationController
-  # ApplicationControllerで定義されたauthorizeフィルタを除外するメソッド
+  # アクセス制限の解除
   skip_before_filter :authorize
 
   def new

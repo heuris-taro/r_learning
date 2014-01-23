@@ -1,5 +1,7 @@
 class ChoicesController < ApplicationController
-  skip_before_filter :authorize, only: :create
+  # アクセス制限の解除
+  skip_before_filter :authorize
+
   # GET /choices
   # GET /choices.json
   def index

@@ -1,5 +1,5 @@
 class ChoicesController < ApplicationController
-  # アクセス制限の解除
+  # 繧｢繧ｯ繧ｻ繧ｹ蛻ｶ髯舌�ｮ隗｣髯､
   skip_before_filter :authorize
 
   # GET /choices

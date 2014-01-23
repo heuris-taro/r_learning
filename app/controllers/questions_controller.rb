@@ -41,6 +41,7 @@ class QuestionsController < ApplicationController
   def edit
     @question = Question.find(params[:id])
     @selection_type = 'multiple'
+    
   end
 
   # POST /questions

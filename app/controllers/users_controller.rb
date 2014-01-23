@@ -1,5 +1,7 @@
 # coding: UTF-8
 class UsersController < ApplicationController
+  # アクセス制限の解除
+  skip_before_filter :authorize
   # GET /users
   # GET /users.json
   def index
@@ -74,7 +76,11 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
+    begin
+      @user.destroy
+    resucue Exception => e
+      flash[:notice] = e.message
+    end
 
     respond_to do |format|
       format.html { redirect_to users_url }

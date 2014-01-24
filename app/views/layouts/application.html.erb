@@ -9,8 +9,8 @@
 <body class='<%= controller.controller_name %>'>	<!-- controllerの名前をクラス名に動的に設定 -->
 	<div id="headder">
 		<div id="title_area">
-			<%= image_tag("logo.gif") %>
-			<%= @page_title || "R-learningはRubyを楽しく勉強する為のe-learningサイトです。" %>		<!-- 左辺が偽だった場合、右辺が真となる→コントローラからページ名の指示が無い場合はPragmatic Bookshelfがページ名になる。 -->
+			<a href="/"><%= image_tag("logo.gif") %></a>
+			<h1><%= @page_title || "「R-Learning」は、Rubyを楽しく勉強する為のE-learningサイトです。" %></h1>		<!-- 左辺が偽だった場合、右辺が真となる→コントローラからページ名の指示が無い場合はPragmatic Bookshelfがページ名になる。 -->
 		</div>
 	</div>
 	<div id="global_navigation">

@@ -1,5 +1,7 @@
 # coding: UTF-8
 class QuestionsController < ApplicationController
+  # アクセス制限の解除
+  skip_before_filter :authorize
   # GET /questions
   # GET /questions.json
   def index

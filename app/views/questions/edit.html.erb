@@ -1,20 +1,17 @@
 <h1>Editing question</h1>
-
 <%= render 'form' %>
 
-
+<%= link_to 'New Choice', new_choice_path(question:@question) %> |
 <% @question.choices.each do |ch| %>
-  <%= link_to "choice #{num2alph  ch.choice_number}", ch %> |
-<% end %>
-<%= link_to 'New Choice', new_choice_path(question:@question) %>
-<br>
-<% @question.choices.each do |choice| %>
-  <%= render choice %>
+  <%= link_to "choice #{num2alph  ch.choice_number}",
+    edit_choice_path(ch) %> |
 <% end %>
 <br>
-<div class='clear-fix'></div>
 
 #正解の選択肢を追加
 <br>
+<%= render @question.choices %>
+<div class='clear-fix'></div>
+
 <%= link_to 'Show', @question %> |
 <%= link_to 'Back', questions_path %>

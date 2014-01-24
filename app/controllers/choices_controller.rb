@@ -1,5 +1,7 @@
 class ChoicesController < ApplicationController
-  skip_before_filter :authorize, only: :create
+  # アクセス制限の解除
+  skip_before_filter :authorize
+
   # GET /choices
   # GET /choices.json
   def index
@@ -65,6 +67,11 @@ class ChoicesController < ApplicationController
   # PUT /choices/1.json
   def update
     @choice = Choice.find(params[:id])
+    if params[:is_correct] == '1'
+      @correct_answer = CorrectAnswer.create(
+        question_id: @choice.question.id,
+        choice_number: params[:choice][:choice_number])
+    end
 
     respond_to do |format|
       if @choice.update_attributes(params[:choice])

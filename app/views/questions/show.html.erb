@@ -4,5 +4,8 @@
   <%= render @question.choices %>
   <div class='clear-fix'></div>
   <%= submit_tag("解答する") %>
+  <% if session[:user_id] %>
+  <%= link_to '問題一覧', questions_path %>
+  <% end %>
 <% end %>
 

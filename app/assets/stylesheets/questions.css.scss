@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .questions{
+  position:relative;
   // multi column
   div#columns{
     div.choices{
@@ -17,14 +18,17 @@
         float:left;
       }
       label > pre{
-	margin: 0.5em;
+        margin: 0.5em;
       }
     }
     .clear-fix{
       clear: both;
     }
   }
-
+  .bottom{
+    position:absolute;
+    bottom: 2em;
+  }
 
 }
 @media screen and (max-width: 770px) {

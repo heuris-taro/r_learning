@@ -135,3 +135,6 @@ $ testdrb -Itest test/unit/correct_answer_test.rb # 別プロセスで
 alias td="testdrb -I test"
 alias tdall="testdrb -I test ./test/**/*_test.rb"
 ```
+# License
+
+Ruby on Rails is released under the MIT License.

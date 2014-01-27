@@ -1,7 +1,6 @@
 # coding: UTF-8
 class QuestionsController < ApplicationController
-  # アクセス制限の解除
-  skip_before_filter :authorize, only: [:show, :explain]
+  skip_before_filter :authorize, only: [:index, :show, :explain]
   # GET /questions
   # GET /questions.json
   def index
@@ -17,10 +16,10 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-    if @question.correct_answers.count == 1
-      @selection_type = 'single'
-    else
-      @selection_type = 'multiple'
+    if @question.choices.empty?
+      redirect_to questions_url,
+        notice: "選択肢が0個です"
+      return
     end
     respond_to do |format|
       format.html # show.html.erb
@@ -42,19 +41,22 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])
-    @selection_type = 'multiple'
-    
+
   end
 
   # POST /questions
   # POST /questions.json
   def create
     @question = Question.new(params[:question])
+    choice = Choice.new( choice_number: 1,
+                        description: '選択肢の内容')
 
     respond_to do |format|
       if @question.save
+        choice.question_id = @question.id
+        choice.save
         format.html { redirect_to edit_question_url(@question),
-		      notice: 'Question was successfully created.' }
+                      notice: 'Question was successfully created.' }
         format.json { render json: @question, status: :created, location: @question }
       else
         format.html { render action: "new" }
@@ -94,12 +96,12 @@ class QuestionsController < ApplicationController
   # GET /questions/1/explain
   def explain
     @question = Question.find(params[:id])
-    if @question.correct_answers.count == 1
+    if @question.single?
       choiced_ans = Set.new([ params[:choice].to_i ])
     else
       choiced_ans = params[:choice].
-        each_with_object(Set.new) do |(k,v),a| # ソートする必要はない
-        a<<k.to_i if v=='1'
+        each_with_object(Set.new) do |(k, v), a|
+        a << k.to_i if v == '1'
       end
     end
     @corrects = Set.new( @question.correct_answers.map(&:choice_number) )
@@ -108,6 +110,4 @@ class QuestionsController < ApplicationController
       @mistake = choiced_ans
     end
   end
-
-
 end

@@ -1,4 +1,3 @@
-<p>パラメータ<%= debug(params) %></p>
 <% if @mistake %>
 <p>
 不正解！あなたが選んだ答えは
@@ -21,4 +20,3 @@
   <%= choice.explanation %>
   <%= content_tag(:pre, choice.description) %>
 <% end %>
-<%= link_to '次の問題', exercise_start_path %>

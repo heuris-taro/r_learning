@@ -1,6 +1,4 @@
 class ChoicesController < ApplicationController
-  # アクセス制限の解除
-  skip_before_filter :authorize
 
   # GET /choices
   # GET /choices.json
@@ -31,7 +29,7 @@ class ChoicesController < ApplicationController
     if question = Question.find(params[:question])
       @choice.question_id = question.id
     end
-    edge =  @choice.question.choices.maximum(:choice_number)
+    edge = @choice.question.choices.maximum(:choice_number)
     edge ||= 0
     @choice.choice_number = edge.succ
 
@@ -44,17 +42,25 @@ class ChoicesController < ApplicationController
   # GET /choices/1/edit
   def edit
     @choice = Choice.find(params[:id])
+    if @choice.question.correct_answers.find_by_choice_number(@choice.choice_number)
+      @is_correct = true
+    end
   end
 
   # POST /choices
   # POST /choices.json
   def create
     @choice = Choice.new(params[:choice])
-
+    key = { question_id: @choice.question.id,
+            choice_number: params[:choice][:choice_number] }
+    if params[:is_correct] == '1'
+      ca = CorrectAnswer.new(key)
+    end
     respond_to do |format|
       if @choice.save
+        ca.save
         format.html { redirect_to edit_question_url(@choice.question),
-		      notice: 'Choice was successfully created.' }
+                      notice: 'Choice was successfully created.' }
         format.json { render json: @choice, status: :created, location: @choice }
       else
         format.html { render action: "new" }
@@ -67,15 +73,20 @@ class ChoicesController < ApplicationController
   # PUT /choices/1.json
   def update
     @choice = Choice.find(params[:id])
-    if params[:is_correct] == '1'
-      @correct_answer = CorrectAnswer.create(
-        question_id: @choice.question.id,
-        choice_number: params[:choice][:choice_number])
+
+    key = { question_id: @choice.question.id,
+            choice_number: params[:choice][:choice_number] }
+    ca = CorrectAnswer.where(key).first
+    if params[:is_correct] == '1' && ca.blank?
+      @correct_answer = CorrectAnswer.create key
+    elsif params[:is_correct].nil?  && ca
+      ca.destroy
     end
 
     respond_to do |format|
       if @choice.update_attributes(params[:choice])
-        format.html { redirect_to @choice, notice: 'Choice was successfully updated.' }
+        format.html { redirect_to edit_question_url(@choice.question),
+                      notice: 'Choice was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -91,7 +102,8 @@ class ChoicesController < ApplicationController
     @choice.destroy
 
     respond_to do |format|
-      format.html { redirect_to choices_url }
+      format.html {
+        redirect_to edit_question_url(@choice.question)}
       format.json { head :no_content }
     end
   end

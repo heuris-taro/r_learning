@@ -1,9 +1,9 @@
 <div class='choices'>
-<% if @selection_type == 'single' %>
-  <%= radio_button_tag "choice", choice.choice_number %>
-<% elsif @selection_type == 'multiple' %>
-  <%= check_box :choice, choice.choice_number %>
-<% end %>
+  <% if @question.single? %>
+    <%= radio_button_tag "choice", choice.choice_number %>
+  <% else %>
+    <%= check_box :choice, choice.choice_number %>
+  <% end %>
 
   <%= label_tag  "choice_#{choice.choice_number}",
     content_tag(:pre, choice.description)

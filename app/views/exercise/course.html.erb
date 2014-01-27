@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+<h2><%= params[:course] %>コース</h2>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Explanation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <%= render @questions %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>

@@ -58,7 +58,7 @@ class ChoicesController < ApplicationController
     end
     respond_to do |format|
       if @choice.save
-        ca.save
+        ca && ca.save
         format.html { redirect_to edit_question_url(@choice.question),
                       notice: 'Choice was successfully created.' }
         format.json { render json: @choice, status: :created, location: @choice }

@@ -10,4 +10,7 @@ class ExerciseController < ApplicationController
       format.html { redirect_to @question}
     end
   end
+  def course
+    @questions = Question.find_all_by_course(params[:course])
+  end
 end

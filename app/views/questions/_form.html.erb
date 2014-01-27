@@ -19,6 +19,10 @@
     <%= f.label :explanation %><br />
     <%= f.text_area :explanation, rows: 3 %>
   </div>
+  <div>
+    <%= label_tag :course, 'コース:' %>
+    <%= select_tag :course, options_for_select(Question::COURSE, @question.course) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

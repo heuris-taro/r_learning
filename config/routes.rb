@@ -1,4 +1,6 @@
 RLearning::Application.routes.draw do
+  get "exercise/course"
+
   get 'admin' => 'admin#index'
   
   controller :sessions do
@@ -7,26 +9,16 @@ RLearning::Application.routes.draw do
     delete 'logout' => :destroy
   end
   
-  get "admin/index"
-
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
-
-  resources :users
-
-
-  resources :correct_answers
-
   get "exercise/start"
 
+  resources :users
   resources :correct_answers
   resources :choices
   resources :questions do
     get :explain, on: :member
   end
+  
+  root to: 'exercise#start'
 
 
   # The priority is based upon order of creation:
@@ -78,7 +70,6 @@ RLearning::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: 'exercise#start'
 
   # See how all your routes lay out with "rake routes"
 

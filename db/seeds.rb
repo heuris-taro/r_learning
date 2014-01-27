@@ -325,3 +325,7 @@ CorrectAnswer.create(
 )
 
 ##############################################################################
+Question.all.each do |it|
+  it.course='ruby'
+  it.save
+end

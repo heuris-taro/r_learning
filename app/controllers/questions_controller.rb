@@ -69,7 +69,8 @@ class QuestionsController < ApplicationController
   # PUT /questions/1.json
   def update
     @question = Question.find(params[:id])
-
+    #p 'DEBUG', 
+    @question.course = params[:course]
     respond_to do |format|
       if @question.update_attributes(params[:question])
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }

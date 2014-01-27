@@ -1,4 +1,13 @@
 <h1><%= @user.name %> さまの管理画面</h1>
-
 登録している問題数: <%= @total_questions %>
+<br>
 
+<%= form_tag exercise_course_path, method: :get do %>
+  <div class="field">
+    <%= label_tag :course, 'コース:' %>
+    <%= select_tag :course, options_for_select(Question::COURSE) %>
+  </div>
+  <%= submit_tag 'はじめる' %>
+<% end %>
+
+<p>コースは追加できません</p>

@@ -5,5 +5,8 @@ class ExerciseControllerTest < ActionController::TestCase
     get :start
     assert_response :success
   end
-
+  test "should get course" do
+   get :course
+   assert_response :success
+  end
 end

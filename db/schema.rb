@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140127052556) do
+ActiveRecord::Schema.define(:version => 20140128065429) do
 
   create_table "choices", :force => true do |t|
     t.integer  "question_id",   :null => false
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(:version => 20140127052556) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "trial_cnt"
+    t.integer  "answer_cnt"
+    t.integer  "arrival_cnt"
   end
 
 end

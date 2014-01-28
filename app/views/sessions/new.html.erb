@@ -1,32 +1,22 @@
-<div class="admin">
+<div class="r_learning_form">
+	<h1>ログインページ</h1>
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
-  
-  <%= form_tag do %>
-    <fieldset>
-      <tr>
-        <th>
-          <h2>ユーザーログイン</h2>
-        </th>
-        <td>
-          <div class="admin">
-            <%= label_tag :name, 'Ａｄｍｉｎ ＩＤ：' %>
-            <%= text_field_tag :name, params[:name] %>
-          </div>
-        </td>
-        <td>
-          <div class="admin">
-            <%= label_tag :password, 'パスワード：' %>
-            <%= password_field_tag :password, params[:password] %>
-          </div>
-        </td>
-        <td>
-          <div id="login">
-            <%= submit_tag "ログイン" %>
-          </div>
-        </td>
-      </tr>
-    </fieldset>
-  <% end %>
+  <fieldset>
+		<legend>ログインしてください</legend>
+		<%= form_tag do %>
+      <div>
+        <%= label :name, 'ログインID：' %>
+        <%= text_field_tag :name, params[:name], size: 40 %>
+      </div>
+      <div>
+        <%= label :password, 'パスワード：' %>
+        <%= password_field_tag :password, params[:password], size: 40 %>
+      </div>
+      <div>
+        <%= submit_tag "ログイン" %>
+      </div>
+  	<% end %>
+	</fieldset>
 </div>

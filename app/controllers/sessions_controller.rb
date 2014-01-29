@@ -8,10 +8,16 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_name(params[:name])
+    @authority = nil
     # ユーザ認証がＯＫの場合
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to admin_url
+			flash[:authority] = user.authority
+      if user.authority == 1
+      	redirect_to users_url
+      else
+      	redirect_to admin_url
+      end
     # ユーザ認証がＮＧの場合
     else
       redirect_to login_url, alert: "無効なユーザ／パスワードの組み合わせです。"

@@ -26,6 +26,14 @@
     <%= f.password_field :password_confirmation, size: 40  %>
   </div>
 
+  <% if @auth %>
+  <div>
+    <%= f.label :authority, '管理者権限：' %>
+    <%= f.check_box :authority, value: 1 %>
+
+  </div>
+  <% end %>
+
   <div>
     <%= f.submit :ユーザー登録 %>
   </div>

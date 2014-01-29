@@ -110,9 +110,26 @@ class QuestionsController < ApplicationController
     unless @corrects == choiced_ans
       @mistake = choiced_ans
     end
-    # 各カウントのためにcount()の呼び出し
+    
+    # 各カウント処理を実行
+    # 到達度のカウント。arrival表にレコードを追加
+    @question_id = Question.find(params[:id])
+    question_id = @question_id.id
+    @user_id = User.find(session[:user_id])
+    user_id = @user_id.id
+
+    an_arrival = Arrival.new(
+      user_id: user_id,
+      question_id: question_id,
+      arrival_flg: false )
+    an_arrival.save
+    @arrival = Arrival.where('user_id = ? AND question_id = ?', user_id, question_id).first
+    if @mistake.nil?
+      @arrival.update_attribute(:arrival_flg, true)
+    else
+      @arrival.update_attribute(:arrival_flg, false)
+    end
+    # 正解数、試行回数のカウント
     count()
-    # 達成確認
-    # @arrival_cnt  = User.find(session[:user_id], select: "arrival_cnt")
   end
 end

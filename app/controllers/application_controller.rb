@@ -24,15 +24,7 @@ class ApplicationController < ActionController::Base
       answer = @answer_cnt.answer_cnt + 1
       @user.update_attribute(:answer_cnt, answer)
     end
-  end
-
-  # 次回から表示しないをクリックすると呼び出されるメソッド
-  def arrival
     # 現在の到達回数をカウントする
-    @arrival_cnt  = User.find(session[:user_id], select: "arrival_cnt")
-    if @arrival_cnt == '1'
-      arrival = @arrival_cnt.arrival_cnt + 1
-      @user.update_attribute(:arrival_cnt, arrival)
-    end
+    @arrival_cnt  = Arrival.where('arrival_flg = ?', '1').count
   end
 end

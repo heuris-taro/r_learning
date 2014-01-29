@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  has_many :arrival
   COURSE = ["ruby", "common_knowledge", "rails"]
   attr_accessible :description, :explanation
   has_many :correct_answers, dependent: :destroy

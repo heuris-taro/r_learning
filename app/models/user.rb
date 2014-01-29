@@ -1,5 +1,7 @@
 # coding: UTF-8
 class User < ActiveRecord::Base
+  has_many :arrival
+  
   # 同じ名前のユーザがデータベースに2人いないかを検証する
   validates :name, presence: true, uniqueness: true
   # タイプしたパスワードに誤りがないかを検証する

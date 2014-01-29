@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140128065429) do
+ActiveRecord::Schema.define(:version => 20140129052944) do
+
+  create_table "arrivals", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.boolean  "arrival_flg"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "choices", :force => true do |t|
     t.integer  "question_id",   :null => false

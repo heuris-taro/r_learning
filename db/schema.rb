@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(:version => 20140128085123) do
 
   create_table "choices", :force => true do |t|
-    t.integer  "question_id"
+    t.integer  "question_id",   :null => false
     t.integer  "choice_number"
     t.text     "description"
     t.datetime "created_at",    :null => false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20140128085123) do
   end
 
   create_table "correct_answers", :force => true do |t|
-    t.integer  "question_id"
+    t.integer  "question_id",   :null => false
     t.integer  "choice_number"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
@@ -41,9 +41,12 @@ ActiveRecord::Schema.define(:version => 20140128085123) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "authority"
+    t.integer  "trial_cnt",       :default => 0
+    t.integer  "answer_cnt",      :default => 0
+    t.integer  "arrival_cnt",     :default => 0
   end
 
 end

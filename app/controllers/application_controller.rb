@@ -4,18 +4,13 @@ class ApplicationController < ActionController::Base
   before_filter :management_screen
   
   def management_screen
-		if session[:user_id]
-			user = User.find(session[:user_id]) 
-			authority = user.authority
-		else
-			authority = 0
+  	if session[:user_id]
+			cur_user = User.find(session[:user_id])
+			if cur_user
+				@authority = true if cur_user.authority == 1
+			end
 		end
-    @auth = (params[:authority])
-    if @auth == "administrative_privileges" || authority == 1
-    	@auth = 1
-    else
-    	@auth = nil
-    end
+		p 'DEBUG', @authority #> 1
   end
   
   def authorize

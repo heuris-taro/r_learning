@@ -21,18 +21,17 @@
 		<ul>
 			<li><a href="/">問題を解く</a></li>
 			<li><a href="/questions">問題を作る</a></li>
-			<% if @auth == 1 %>
+			<% if @authority %>
 			<li><a href="/users">管理画面</a></li>
 			<% end %>
-			<li><a href="/users/new">ユーザー登録</a></li>
 			<% unless session[:user_id] %>
-			<li><a href="/users/new">ユーザー登録</a></li>
 			<li><a href="/login">ログイン</a></li>
 			<% end %>
       <% if session[:user_id] %>
 			<li><%= link_to '管理画面へ', admin_path %></a></li>
 			<li><%= link_to 'ログアウト', logout_path, method: :delete %></a></li>
 			<% end %>
+			<li><a href="/users/new">ユーザー登録</a></li>
 		</ul>
 	</div>
 	<div id="columns">

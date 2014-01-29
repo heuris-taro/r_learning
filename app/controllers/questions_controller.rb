@@ -110,5 +110,9 @@ class QuestionsController < ApplicationController
     unless @corrects == choiced_ans
       @mistake = choiced_ans
     end
+    # 各カウントのためにcount()の呼び出し
+    count()
+    # 達成確認
+    # @arrival_cnt  = User.find(session[:user_id], select: "arrival_cnt")
   end
 end

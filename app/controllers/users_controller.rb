@@ -5,7 +5,15 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order(:name)
+    @user = User.find_all_by_authority(0)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+  
+  def admin_index
+    @admin = User.find_all_by_authority(1)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }

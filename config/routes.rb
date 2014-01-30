@@ -11,7 +11,9 @@ RLearning::Application.routes.draw do
   
   get "exercise/start"
 
-  resources :users
+  resources :users do
+    get :admin_index, on: :collection
+  end
   resources :correct_answers
   resources :choices
   resources :questions do

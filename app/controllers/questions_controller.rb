@@ -14,7 +14,8 @@ class QuestionsController < ApplicationController
 	      format.json { render json: @questions }
 	    end
 	  else
-	  	redirect to login_url
+	  	redirect to login_url,
+	  	notice: "ログインしてください"
 	  end
   end
 

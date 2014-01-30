@@ -1,3 +1,4 @@
+<% if notice %><p id="notice"><%= notice %></p><% end %>
 <%= sanitize @question.description %>
 
 <%= form_tag(explain_question_path(@question), method: :get) do %>

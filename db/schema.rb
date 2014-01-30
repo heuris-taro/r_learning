@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140129052944) do
+ActiveRecord::Schema.define(:version => 20140130084759) do
 
   create_table "arrivals", :force => true do |t|
     t.integer  "user_id"
@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(:version => 20140129052944) do
     t.string   "password_digest"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.integer  "authority",       :default => 0
     t.integer  "trial_cnt",       :default => 0
     t.integer  "answer_cnt",      :default => 0
     t.integer  "arrival_cnt",     :default => 0
-    t.integer  "authority"
   end
 
 end

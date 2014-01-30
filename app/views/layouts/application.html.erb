@@ -29,13 +29,15 @@
 			<li><a href="/login">ログイン</a></li>
 			<% end %>
 			<li><a href="/users/new">ユーザー登録</a></li>
-			<% if @authority %>
+			<% if @authority == 1 %>
 			<li><a href="/users">ユーザー一覧</a></li>
+			<li><a href="/users/admin_index">管理者一覧</a></li>
 			<% end %>
 		</ul>
 	</div>
 	<div id="columns">
 		<div id="main">
+		  <!--<% if notice %><p id="notice"><%= notice %></p><% end %>-->
 			<%= yield %>		<!-- 各html.erbファイルの内容を反映する -->
 		</div>
 	</div>

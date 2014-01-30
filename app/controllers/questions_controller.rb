@@ -6,11 +6,16 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
+		#@questions = Question.find_by_user_id(session[:user_id])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @questions }
-    end
+    if session[:user_id]
+	    respond_to do |format|
+	      format.html # index.html.erb
+	      format.json { render json: @questions }
+	    end
+	  else
+	  	redirect to login_url
+	  end
   end
 
   # GET /questions/1
@@ -49,6 +54,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(params[:question])
+    @question.user_id = session[:user_id]
     choice = Choice.new( choice_number: 1,
                         description: '選択肢の内容')
 
@@ -73,13 +79,18 @@ class QuestionsController < ApplicationController
     #p 'DEBUG', 
     @question.course = params[:course]
     respond_to do |format|
-      if @question.update_attributes(params[:question])
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
+			if @question.user_id == session[:user_id] || User.find(session[:user_id]).authority == 1
+	      if @question.update_attributes(params[:question])
+	        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
+	        format.json { head :no_content }
+	      else
+	        format.html { render action: "edit" }
+	        format.json { render json: @question.errors, status: :unprocessable_entity }
+	      end
+	    else
+	    	format.html { redirect_to questions_url, notice: 'You do not have permission to edit.' }
+	      format.json { render json: @question.errors, status: :unprocessable_entity }
+	    end
     end
   end
 
@@ -88,11 +99,12 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-
-    respond_to do |format|
-      format.html { redirect_to questions_url }
-      format.json { head :no_content }
-    end
+    if @question.user_id == session[:user_id] || session[:authority] == 1
+	    respond_to do |format|
+	      format.html { redirect_to questions_url }
+	      format.json { head :no_content }
+	    end
+	  end
   end
 
   # GET /questions/1/explain

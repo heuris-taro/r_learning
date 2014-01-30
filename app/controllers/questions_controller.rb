@@ -1,6 +1,7 @@
 # coding: UTF-8
 class QuestionsController < ApplicationController
-  skip_before_filter :authorize, only: [:index, :show, :explain]
+  skip_before_filter :authorize, only: [:show, :explain]
+  skip_before_filter :management_screen, only: [:new, :edit, :create, :update, :destroy]
   # GET /questions
   # GET /questions.json
   def index

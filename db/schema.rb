@@ -43,16 +43,18 @@ ActiveRecord::Schema.define(:version => 20140129052944) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "course"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "trial_cnt"
-    t.integer  "answer_cnt"
-    t.integer  "arrival_cnt"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "authority"
+    t.integer  "trial_cnt",       :default => 0
+    t.integer  "answer_cnt",      :default => 0
+    t.integer  "arrival_cnt",     :default => 0
   end
 
 end

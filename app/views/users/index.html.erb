@@ -1,7 +1,4 @@
 <h1>ユーザ一覧</h1>
-  <% if notice %>
-  <p id="notice"><%= notice %></p>
-  <% end %>
 
 <table>
   <tr>
@@ -23,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', new_user_path(authority: "administrative_privileges") %>

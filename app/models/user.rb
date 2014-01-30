@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   # タイプしたパスワードに誤りがないかを検証する
   has_secure_password
-  attr_accessible :name, :password_digest, :password, :password_confirmation, :answer_cnt, :trial_cnt, :arrival_cnt
+  attr_accessible :name, :password_digest, :password, :password_confirmation, :answer_cnt, :trial_cnt, :arrival_cnt, :authority
   
   def ensure_an_admin_remains
     if User.count.zero?

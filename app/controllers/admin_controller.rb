@@ -16,7 +16,11 @@ class AdminController < ApplicationController
     user_id = @user_id.id
     @arrival_cnt = Arrival.where('user_id = ? AND arrival_flg = ?', user_id, 't').count
 #    @arrival_cnt  = User.find(session[:user_id], select: "arrival_cnt")
-    @percentage_correct_answers = answer_cnt * 100 / trial_cnt 
+    unless trial_cnt == 0
+      @percentage_correct_answers = answer_cnt * 100 / trial_cnt
+    else
+      @percentage_correct_answers = 0
+    end
     # 問題管理画面へリダイレクトする
     respond_to do |format|
       format.html # index.html.erb

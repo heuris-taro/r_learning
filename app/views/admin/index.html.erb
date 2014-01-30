@@ -1,7 +1,7 @@
 <h1><%= @user.name %> さまの管理画面</h1>
 <p>登録している問題数: <%= @total_questions %></p>
 <p>正答率:約<%= @percentage_correct_answers %>%</p>
-<p>到達率：<%= @arrival_cnt.arrival_cnt %>問/<%= @total_questions %>問</p>
+<p>到達率：<%= @arrival_cnt %>問/<%= @total_questions %>問</p>
 
 <%= form_tag exercise_course_path, method: :get do %>
   <div class="field">

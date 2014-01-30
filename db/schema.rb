@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(:version => 20140129052944) do
     t.string   "password_digest"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.integer  "authority"
     t.integer  "trial_cnt",       :default => 0
     t.integer  "answer_cnt",      :default => 0
     t.integer  "arrival_cnt",     :default => 0
+    t.integer  "authority"
   end
 
 end

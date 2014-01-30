@@ -11,7 +11,7 @@
 Question.delete_all
 Choice.delete_all
 CorrectAnswer.delete_all
-
+User.delete_all
 ###############################################################################
 ##				Question n				     #
 ###############################################################################
@@ -325,7 +325,10 @@ CorrectAnswer.create(
 )
 
 ##############################################################################
+
+User.create(name: "a", password: 'a')
 Question.all.each do |it|
   it.course='ruby'
+  it.user_id = 'a'
   it.save
 end

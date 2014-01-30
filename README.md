@@ -138,3 +138,6 @@ alias tdall="testdrb -I test ./test/**/*_test.rb"
 # License
 
 Ruby on Rails is released under the MIT License.
+
+# schema の衝突
+http://tbaggery.com/2010/10/24/reduce-your-rails-schema-conflicts.html

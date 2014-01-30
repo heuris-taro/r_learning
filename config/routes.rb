@@ -1,25 +1,25 @@
 RLearning::Application.routes.draw do
-  get "exercise/course"
 
   get 'admin' => 'admin#index'
-  
+
   controller :sessions do
     get 'login' => :new
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
-  get "exercise/start"
+
 
   resources :users do
     get :admin_index, on: :collection
   end
-  resources :correct_answers
+#  resources :correct_answers
   resources :choices
   resources :questions do
     get :explain, on: :member
   end
-  
+
+#  get "exercise/start"
+  get "exercise/course"
   root to: 'exercise#start'
 
 

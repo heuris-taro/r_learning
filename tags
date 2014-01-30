@@ -5,7 +5,14 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 ActiveSupport	test/test_helper.rb	/^  class ActiveSupport::TestCase$/;"	c
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+AddAnswerCntToUsers	db/migrate/20140128065352_add_answer_cnt_to_users.rb	/^class AddAnswerCntToUsers < ActiveRecord::Migration$/;"	c
+AddArrivalCntToUsers	db/migrate/20140128065429_add_arrival_cnt_to_users.rb	/^class AddArrivalCntToUsers < ActiveRecord::Migration$/;"	c
+AddAuthorityToUsers	db/migrate/20140128054916_add_authority_to_users.rb	/^class AddAuthorityToUsers < ActiveRecord::Migration$/;"	c
+AddCourseColumn	db/migrate/20140127052556_add_course_column.rb	/^class AddCourseColumn < ActiveRecord::Migration$/;"	c
 AddExplanationToChoices	db/migrate/20140118103124_add_explanation_to_choices.rb	/^class AddExplanationToChoices < ActiveRecord::Migration$/;"	c
+AddTrialCntToUsers	db/migrate/20140128065247_add_trial_cnt_to_users.rb	/^class AddTrialCntToUsers < ActiveRecord::Migration$/;"	c
+AddUserIdToQuestions	db/migrate/20140128085123_add_user_id_to_questions.rb	/^class AddUserIdToQuestions < ActiveRecord::Migration$/;"	c
 AdminController	app/controllers/admin_controller.rb	/^class AdminController < ApplicationController$/;"	c
 AdminControllerTest	test/functional/admin_controller_test.rb	/^class AdminControllerTest < ActionController::TestCase$/;"	c
 AdminHelper	app/helpers/admin_helper.rb	/^module AdminHelper$/;"	m
@@ -13,6 +20,8 @@ AdminHelperTest	test/unit/helpers/admin_helper_test.rb	/^class AdminHelperTest <
 Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:RLearning
 ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
 ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+Arrival	app/models/arrival.rb	/^class Arrival < ActiveRecord::Base$/;"	c
+ArrivalTest	test/unit/arrival_test.rb	/^class ArrivalTest < ActiveSupport::TestCase$/;"	c
 BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
 Choice	app/models/choice.rb	/^class Choice < ActiveRecord::Base$/;"	c
 ChoiceTest	test/unit/choice_test.rb	/^class ChoiceTest < ActiveSupport::TestCase$/;"	c
@@ -26,6 +35,7 @@ CorrectAnswersController	app/controllers/correct_answers_controller.rb	/^class C
 CorrectAnswersControllerTest	test/functional/correct_answers_controller_test.rb	/^class CorrectAnswersControllerTest < ActionController::TestCase$/;"	c
 CorrectAnswersHelper	app/helpers/correct_answers_helper.rb	/^module CorrectAnswersHelper$/;"	m
 CorrectAnswersHelperTest	test/unit/helpers/correct_answers_helper_test.rb	/^class CorrectAnswersHelperTest < ActionView::TestCase$/;"	c
+CreateArrivals	db/migrate/20140129052944_create_arrivals.rb	/^class CreateArrivals < ActiveRecord::Migration$/;"	c
 CreateChoices	db/migrate/20140107094336_create_choices.rb	/^class CreateChoices < ActiveRecord::Migration$/;"	c
 CreateCorrectAnswers	db/migrate/20140107094458_create_correct_answers.rb	/^class CreateCorrectAnswers < ActiveRecord::Migration$/;"	c
 CreateQuestions	db/migrate/20140107093239_create_questions.rb	/^class CreateQuestions < ActiveRecord::Migration$/;"	c
@@ -47,16 +57,28 @@ SessionsHelper	app/helpers/sessions_helper.rb	/^module SessionsHelper$/;"	m
 SessionsHelperTest	test/unit/helpers/sessions_helper_test.rb	/^class SessionsHelperTest < ActionView::TestCase$/;"	c
 User	app/models/user.rb	/^class User < ActiveRecord::Base$/;"	c
 UserTest	test/unit/user_test.rb	/^class UserTest < ActiveSupport::TestCase$/;"	c
+UsersAuthorityDefaultZero	db/migrate/20140130084759_users_authority_default_zero.rb	/^class UsersAuthorityDefaultZero < ActiveRecord::Migration$/;"	c
 UsersController	app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c
 UsersControllerTest	test/functional/users_controller_test.rb	/^class UsersControllerTest < ActionController::TestCase$/;"	c
 UsersHelper	app/helpers/users_helper.rb	/^module UsersHelper$/;"	m
 UsersHelperTest	test/unit/helpers/users_helper_test.rb	/^class UsersHelperTest < ActionView::TestCase$/;"	c
+admin_index	app/controllers/users_controller.rb	/^  def admin_index$/;"	f	class:UsersController
+authorize	app/controllers/application_controller.rb	/^  def authorize$/;"	f	class:ApplicationController
 bar	db/seeds.rb	/^def bar$/;"	f
 change	db/migrate/20140107093239_create_questions.rb	/^  def change$/;"	f	class:CreateQuestions
 change	db/migrate/20140107094336_create_choices.rb	/^  def change$/;"	f	class:CreateChoices
 change	db/migrate/20140107094458_create_correct_answers.rb	/^  def change$/;"	f	class:CreateCorrectAnswers
 change	db/migrate/20140118103124_add_explanation_to_choices.rb	/^  def change$/;"	f	class:AddExplanationToChoices
 change	db/migrate/20140121050318_create_users.rb	/^  def change$/;"	f	class:CreateUsers
+change	db/migrate/20140127052556_add_course_column.rb	/^  def change$/;"	f	class:AddCourseColumn
+change	db/migrate/20140128054916_add_authority_to_users.rb	/^  def change$/;"	f	class:AddAuthorityToUsers
+change	db/migrate/20140128065247_add_trial_cnt_to_users.rb	/^  def change$/;"	f	class:AddTrialCntToUsers
+change	db/migrate/20140128065352_add_answer_cnt_to_users.rb	/^  def change$/;"	f	class:AddAnswerCntToUsers
+change	db/migrate/20140128065429_add_arrival_cnt_to_users.rb	/^  def change$/;"	f	class:AddArrivalCntToUsers
+change	db/migrate/20140128085123_add_user_id_to_questions.rb	/^  def change$/;"	f	class:AddUserIdToQuestions
+change	db/migrate/20140129052944_create_arrivals.rb	/^  def change$/;"	f	class:CreateArrivals
+count	app/controllers/application_controller.rb	/^  def count$/;"	f	class:ApplicationController
+course	app/controllers/exercise_controller.rb	/^  def course$/;"	f	class:ExerciseController
 create	app/controllers/choices_controller.rb	/^  def create$/;"	f	class:ChoicesController
 create	app/controllers/correct_answers_controller.rb	/^  def create$/;"	f	class:CorrectAnswersController
 create	app/controllers/questions_controller.rb	/^  def create$/;"	f	class:QuestionsController
@@ -64,14 +86,17 @@ create	app/controllers/sessions_controller.rb	/^  def create$/;"	f	class:Session
 create	app/controllers/users_controller.rb	/^  def create$/;"	f	class:UsersController
 destroy	app/controllers/choices_controller.rb	/^  def destroy$/;"	f	class:ChoicesController
 destroy	app/controllers/correct_answers_controller.rb	/^  def destroy$/;"	f	class:CorrectAnswersController
-destroy	app/controllers/questions_controller.rb	/^  def destroy$/;"	f	class:QuestionsController
+destroy	app/controllers/questions_controller.rb	/^  def destroy$/;"	f	class:QuestionsController.update
 destroy	app/controllers/sessions_controller.rb	/^  def destroy$/;"	f	class:SessionsController
 destroy	app/controllers/users_controller.rb	/^  def destroy$/;"	f	class:UsersController
+down	db/migrate/20140130084759_users_authority_default_zero.rb	/^  def down$/;"	f	class:UsersAuthorityDefaultZero
 edit	app/controllers/choices_controller.rb	/^  def edit$/;"	f	class:ChoicesController
 edit	app/controllers/correct_answers_controller.rb	/^  def edit$/;"	f	class:CorrectAnswersController
 edit	app/controllers/questions_controller.rb	/^  def edit$/;"	f	class:QuestionsController
 edit	app/controllers/users_controller.rb	/^  def edit$/;"	f	class:UsersController
-explain	app/controllers/questions_controller.rb	/^  def explain$/;"	f	class:QuestionsController
+ensure_an_admin_remains	app/models/user.rb	/^  def ensure_an_admin_remains$/;"	f	class:User
+explain	app/controllers/questions_controller.rb	/^  def explain$/;"	f	class:QuestionsController.update
+fn.fitText	app/assets/javascripts/jquery.fittext.js	/^(function( $ ){$/;"	f
 foo	db/seeds.rb	/^def foo(x)$/;"	f
 index	app/controllers/admin_controller.rb	/^  def index$/;"	f	class:AdminController
 index	app/controllers/choices_controller.rb	/^  def index$/;"	f	class:ChoicesController
@@ -79,18 +104,24 @@ index	app/controllers/correct_answers_controller.rb	/^  def index$/;"	f	class:Co
 index	app/controllers/questions_controller.rb	/^  def index$/;"	f	class:QuestionsController
 index	app/controllers/users_controller.rb	/^  def index$/;"	f	class:UsersController
 keywait	certified_ruby_cv.rb	/^def keywait$/;"	f
+login_as	test/test_helper.rb	/^  def login_as(user)$/;"	f	class:ActiveSupport
+logout	test/test_helper.rb	/^  def logout$/;"	f	class:ActiveSupport
+management_screen	app/controllers/application_controller.rb	/^  def management_screen$/;"	f	class:ApplicationController
 new	app/controllers/choices_controller.rb	/^  def new$/;"	f	class:ChoicesController
 new	app/controllers/correct_answers_controller.rb	/^  def new$/;"	f	class:CorrectAnswersController
 new	app/controllers/questions_controller.rb	/^  def new$/;"	f	class:QuestionsController
 new	app/controllers/sessions_controller.rb	/^  def new$/;"	f	class:SessionsController
 new	app/controllers/users_controller.rb	/^  def new$/;"	f	class:UsersController
 num2alph	app/helpers/questions_helper.rb	/^  def num2alph(num, first_chr = ?a)$/;"	f	class:QuestionsHelper
+setup	test/test_helper.rb	/^  def setup$/;"	f	class:ActiveSupport
 show	app/controllers/choices_controller.rb	/^  def show$/;"	f	class:ChoicesController
 show	app/controllers/correct_answers_controller.rb	/^  def show$/;"	f	class:CorrectAnswersController
 show	app/controllers/questions_controller.rb	/^  def show$/;"	f	class:QuestionsController
 show	app/controllers/users_controller.rb	/^  def show$/;"	f	class:UsersController
+single?	app/models/question.rb	/^  def single?$/;"	f	class:Question
 start	app/controllers/exercise_controller.rb	/^  def start$/;"	f	class:ExerciseController
 test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
+up	db/migrate/20140130084759_users_authority_default_zero.rb	/^  def up$/;"	f	class:UsersAuthorityDefaultZero
 update	app/controllers/choices_controller.rb	/^  def update$/;"	f	class:ChoicesController
 update	app/controllers/correct_answers_controller.rb	/^  def update$/;"	f	class:CorrectAnswersController
 update	app/controllers/questions_controller.rb	/^  def update$/;"	f	class:QuestionsController

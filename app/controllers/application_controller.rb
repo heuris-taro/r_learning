@@ -2,28 +2,22 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
   before_filter :management_screen
-  
+
   def management_screen
-  	if session[:user_id]
-			cur_user = User.find(session[:user_id])
-			if cur_user
-				@authority = cur_user.authority
-			end
-=begin
-			if cur_user
-				@authority = true if cur_user.authority == 1
-			end
-=end
-		end
-		p 'DEBUG', @authority #> 1
+    if session[:user_id]
+      cur_user = User.find(session[:user_id])
+      if cur_user
+        @authority = cur_user.authority
+      end
+    end
   end
-  
+
   def authorize
     unless User.find_by_id(session[:user_id])
       redirect_to login_url, notice: "ログインしてください"
     end
   end
-  
+
   # 解答するボタンをクリックすると呼び出されるメソッド
   # 試行回数、正解回数、到達回数をカウントする
   def count

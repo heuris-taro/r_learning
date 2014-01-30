@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   # GET /questions.json
   def index
     @questions = Question.all
+		#@questions = Question.find_by_user_id(session[:user_id])
 
     if session[:user_id]
 	    respond_to do |format|

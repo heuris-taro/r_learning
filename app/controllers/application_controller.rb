@@ -7,8 +7,13 @@ class ApplicationController < ActionController::Base
   	if session[:user_id]
 			cur_user = User.find(session[:user_id])
 			if cur_user
+				@authority = cur_user.authority
+			end
+=begin
+			if cur_user
 				@authority = true if cur_user.authority == 1
 			end
+=end
 		end
 		p 'DEBUG', @authority #> 1
   end

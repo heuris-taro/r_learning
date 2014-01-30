@@ -25,10 +25,10 @@
     <%= f.label :password_confirmation, '確認：' %>
     <%= f.password_field :password_confirmation, size: 40  %>
   </div>
-  <% if @authority %>
+  <% if @authority == 1 %>
   <div>
     <%= f.label :authority, '管理者権限：' %>
-    <%= f.check_box :authority, {:checked => !!@user.authority}, value: 1 %>
+    <%= f.check_box :authority, {:checked => @user_auth}, checked_value = "1", unchecked_value = "0" %>
   </div>
   <% end %>
 

@@ -35,6 +35,13 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @user_auth = @user.authority
+    if @user_auth == 1
+    	@user_auth = true
+    else
+    	@user_auth = false
+    end
+    @user_auth
   end
 
   # POST /users

@@ -141,3 +141,6 @@ Ruby on Rails is released under the MIT License.
 
 # schema の衝突
 http://tbaggery.com/2010/10/24/reduce-your-rails-schema-conflicts.html
+
+# 保存時にブラウザ更新
+http://stackoverflow.com/questions/4550247/save-then-refresh-browser-shortcut-trick-command-in-editor
